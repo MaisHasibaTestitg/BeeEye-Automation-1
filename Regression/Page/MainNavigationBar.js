@@ -39,8 +39,8 @@ exports.DashboardNavigation = (browser) => {
     .click(MainNavigationBarSelectors.elements.Dashboard, function (result) {
       browser
         //Here to make sure that you are in Dashboard Page when you click on Dashboard Link by check if Small Card is display or not
-        .waitForElementVisible(DashboardSelector.elements.SmallCard, 'Test is failed After you click on Dashboard Link because the link does not take you to Dashboard Page')
-        .assert.elementPresent(DashboardSelector.elements.SmallCard, 'The assertion failed After you click on Dashboard Link because the link does not take you to Dashboard Page')
+        .waitForElementVisible(DashboardSelector.elements.SmallCardForBestFlow, 'Test is failed After you click on Dashboard Link because the link does not take you to Dashboard Page')
+        .assert.elementPresent(DashboardSelector.elements.SmallCardForBestFlow, 'The assertion failed After you click on Dashboard Link because the link does not take you to Dashboard Page')
     })
     //get pause
     .pause(configrationReader.getPauseValue());

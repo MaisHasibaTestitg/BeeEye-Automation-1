@@ -1,4 +1,6 @@
 const FlowsSelector = require("../Selectors/FlowsSelector");
+const FlowEditTransformationsSelector = require("../Selectors/FlowEditTransformationsSelector");
+const FlowEditDsSelector = require("../Selectors/FlowEditDsSelector");
 const {
   assert
 } = require('chai').assert
@@ -33,6 +35,11 @@ exports.CreateNewFlow = (browser) => {
         .setValue(FlowsSelector.elements.FlowNameInput, FlowName.getThenameOfTheNewFlow())
         .keys(browser.Keys.ENTER)
     })
+    .pause(configrationReader.getPauseValue());
+}
+//Check if back button is display To check if creating Flow is done successfully
+exports.CheckBackButton = (browser) => {
+  browser
     //Check if back button is display To check if creating Flow is done successfully
     .waitForElementVisible(FlowsSelector.elements.BackButton, configrationReader.getPeriod(), 'Test was failed after you click on Submit button in the pop ups window that the new flow does not done successfully')
     .assert.elementPresent(FlowsSelector.elements.BackButton, 'The assertion failed after you click on Submit button in the pop ups window that the new flow does not done successfully')
@@ -40,9 +47,6 @@ exports.CreateNewFlow = (browser) => {
     .assert.elementPresent(FlowsSelector.elements.FlowNameonBackButton, 'The assertion failed after you click on Submit button in the pop ups window that the name of the new flow does not display on the Back button')
     .pause(configrationReader.getPauseValue());
 }
-
-
-
 
 //Edit flow
 exports.EditFlow = (browser) => {
@@ -182,7 +186,8 @@ exports.UploadFile = (browser) => {
     .assert.elementPresent(FlowsSelector.elements.UploadBtn, 'The assertion failed because select file button was not displayed in the new flow page')
     .assert.elementPresent(FlowsSelector.elements.InputFileId, 'The assertion failed because the Input field for the file was not displayed in the new flow page')
     .setValue(FlowsSelector.elements.InputFileId, require('path').resolve(__dirname + '/Data/UCI_Credit_Card.csv'))
-    .pause(configrationReader.getPauseValue());
+    .pause(configrationReader.getLongWait())
+
 }
 
 //Check after You upload the file, if File Information section have the correct data and check Data if are display in Preview Data section
@@ -225,7 +230,8 @@ exports.SelectNotValidLabel = (browser) => {
         .waitForElementVisible(FlowsSelector.elements.LabelMenuVisible, configrationReader.getPeriod(), 'Test was failed After you click on the Label Input because the dropdown for Labels was not displayed')
         .assert.elementPresent(FlowsSelector.elements.LabelMenuVisible, 'The assertion failed After you click on the Label Input because the dropdown for Labels was not displayed')
         .setValue(FlowsSelector.elements.SelectLabelInput, configrationReader.getNotValidLabel())
-        .keys(browser.Keys.ENTER)
+        .click(FlowsSelector.elements.FirstElementinLabelList)
+        //.keys(browser.Keys.ENTER)
         .pause(configrationReader.getPauseValue())
         .waitForElementVisible(FlowsSelector.elements.LabelWarning, 'Test was failed After you select the Label because the error msg was not displayed even though you select the not valid label')
         .assert.elementPresent(FlowsSelector.elements.LabelWarning, 'The assertion failed After you select the Label because the error msg was not displayed even though you select the not valid label')
@@ -245,8 +251,10 @@ exports.SelectValidLabel = (browser) => {
         .waitForElementVisible(FlowsSelector.elements.LabelMenuVisible, configrationReader.getPeriod(), 'Test was failed After you click on the Label Input because the dropdown for Labels was not displayed')
         .assert.elementPresent(FlowsSelector.elements.LabelMenuVisible, 'The assertion failed After you click on the Label Input because the dropdown for Labels was not displayed')
         .setValue(FlowsSelector.elements.SelectLabelInput, configrationReader.getValidLabel())
-        .keys(browser.Keys.ENTER)
-        .pause(configrationReader.getPauseValue())
+        .pause(configrationReader.getDelayValue())
+        .click(FlowsSelector.elements.FirstElementinLabelList)
+        // .keys(browser.Keys.ENTER)
+        .pause(configrationReader.getLongWait())
         .waitForElementVisible(FlowsSelector.elements.PieChart, 'Test was failed After you select the Label because the PieChart was not displayed even though you select the valid label')
         .assert.elementPresent(FlowsSelector.elements.PieChart, 'The assertion failed After you select the Label because the PieChart was not displayed even though you select the valid label')
     })
@@ -260,7 +268,9 @@ exports.RunDataSources = (browser) => {
     .waitForElementVisible(FlowsSelector.elements.DataSourcesButton, 'Test was failed because the DataSources button was not found in flow Page')
     .assert.elementPresent(FlowsSelector.elements.DataSourcesButton, 'The assertion failed because the DataSources button was not found in flow Page')
     .click(FlowsSelector.elements.DataSourcesButton)
-    .pause(7000);
+    .pause(configrationReader.getPauseValue())
+    .assert.not.elementPresent(FlowsSelector.elements.AutoFGButtonDisabled, 'The assertion failed because Auto FG Button was disabled for the flow')
+    .pause(configrationReader.getDelayValue());
 }
 
 //Verify No error displayed in the log file
@@ -269,48 +279,22 @@ exports.VerifyTheLogFile = (browser) => {
     .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
     .waitForElementVisible(FlowsSelector.elements.FlowLogButton, configrationReader.getPeriod(), false, 'Test was failed because the Flow log icon was not found in flow Page')
     .assert.elementPresent(FlowsSelector.elements.FlowLogButton, 'The assertion failed because the Flow log icon was not found in flow Page')
-    .click(FlowsSelector.elements.FlowLogButton)
-    //.waitForElementNotPresent(FlowsSelector.elements.LogError, configrationReader.getPeriod())
-    .waitForElementVisible(FlowsSelector.elements.Log, configrationReader.getPeriod(), 'Test was failed because the log was not display After you click on Flow Log icon')
-    .assert.elementPresent(FlowsSelector.elements.Log, 'The assertion failed because the log was not display After you click on Flow Log icon')
-    .pause(configrationReader.getPauseValue());
-}
-
-//general method  to reduce the duplicate code 
-exports.CreateNewFlowAndUploadFile = (browser) => {
-  browser
-    .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
-    //Click on Flows Link in Navigation Bar
-    .assert.elementPresent(FlowsSelector.elements.NavFlows, 'The assertion failed because the Flows Link was not found in the Main Navigation Bar')
-    .click(FlowsSelector.elements.NavFlows)
-    .waitForElementVisible(FlowsSelector.elements.AddFlowBtn, 'Test was failed because Add Flow Button was not found Flows Page')
-    .assert.elementPresent(FlowsSelector.elements.AddFlowBtn, 'The assertion failed because Add Flow Button was not found Flows Page')
-    //Click on "+" Add flow button
-    .click(FlowsSelector.elements.AddFlowBtn, function (result) {
+    .click(FlowsSelector.elements.FlowLogButton, function (result) {
       browser
-        //pop up will appear to write the name of the new flow
-        .waitForElementVisible(FlowsSelector.elements.PopUp, 'Test was failed after you click on Add flow button because no pop ups window displayed')
-        .assert.elementPresent(FlowsSelector.elements.PopUp, 'The assertion failed after you click on Add flow button because no pop ups window displayed')
-        .waitForElementVisible(FlowsSelector.elements.FlowNameInput, 'Test was failed after you click on Add flow button because no flow name input field in the pop ups window')
-        .assert.elementPresent(FlowsSelector.elements.FlowNameInput, 'The assertion failed after you click on Add flow button because no flow name input field in the pop ups window')
-        //Add random number to the name of the new flow
-        .setValue(FlowsSelector.elements.FlowNameInput, FlowName.getThenameOfTheNewFlow())
-        .keys(browser.Keys.ENTER)
+        .pause(configrationReader.getDelayValue())
+        .elements('css selector', FlowEditTransformationsSelector.elements.WarningLog, (results) => {
+          if (results.value && results.value.ELEMENT) {
+            console.log('There is an error in the Log Window')
+          } else {
+            // Error is not present.
+            console.log('There is no error in the Log Window')
+          }
+        })
     })
-    //Check if back button is display To check if creating Flow is done successfully
-    .waitForElementVisible(FlowsSelector.elements.BackButton, configrationReader.getPeriod(), 'Test was failed after you click on Submit button in the pop ups window that the new flow does not done successfully')
-    .assert.elementPresent(FlowsSelector.elements.BackButton, 'The assertion failed after you click on Submit button in the pop ups window that the new flow does not done successfully')
-    .waitForElementVisible(FlowsSelector.elements.FlowNameonBackButton, 'Test was failed after you click on Submit button in the pop ups window that the new flow does not done successfully')
-    .assert.elementPresent(FlowsSelector.elements.FlowNameonBackButton, 'The assertion failed after you click on Submit button in the pop ups window that the new flow does not done successfully')
-    .pause(configrationReader.getPauseValue())
-    .waitForElementVisible(FlowsSelector.elements.UploadBtn, 'Test was failed because select file button was not displayed in the new flow page')
-    .assert.elementPresent(FlowsSelector.elements.UploadBtn, 'The assertion failed because select file button was not displayed in the new flow page')
-    .assert.elementPresent(FlowsSelector.elements.InputFileId, 'The assertion failed because the Input field for the file was not displayed in the new flow page')
-    .setValue(FlowsSelector.elements.InputFileId, require('path').resolve(__dirname + '/Data/UCI_Credit_Card.csv'))
     .pause(configrationReader.getPauseValue());
 }
 
-//Verify Data Sources section is displayed as wxpected
+//Verify Data Sources section is displayed as expected
 exports.VerifyDatasourceSection = (browser) => {
   browser
     .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
@@ -354,73 +338,19 @@ exports.SearchByfeatureName = (browser) => {
 exports.CheckColumnsTab = (browser) => {
   browser
     .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
-
     .assert.elementPresent(FlowsSelector.elements.ColumnsTab, 'The assertion failed because Columns Tab was not exist in Data Source Details Section')
     .pause(configrationReader.getPauseValue())
     .click(FlowsSelector.elements.ColumnsTab)
-
-    .assert.elementPresent(FlowsSelector.elements.NameColumn, 'The assertion failed After you Click on Columns Tab because the switcher box column was not displayed')
+    .assert.elementPresent(FlowsSelector.elements.Table, 'The assertion failed After you Click on Columns Tab because the Table was not displayed')
+    .assert.elementPresent(FlowsSelector.elements.SwitcherBoxColumn, 'The assertion failed After you Click on Columns Tab because the Switcher box column was not displayed')
+    .assert.elementPresent(FlowsSelector.elements.NameColumn, 'The assertion failed After you Click on Columns Tab because the Name column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.ID, 'The assertion failed because the ID Row was not display')
-    .assert.containsText(FlowsSelector.elements.ID, 'ID', 'The assertion failed because the ID Row was not contained ID as in the File Uploaded')
-    .waitForElementVisible(FlowsSelector.elements.LIMIT_BAL, configrationReader.getPeriod(), 'Test was failed because the LIMIT_BAL Row was not display')
-    .assert.elementPresent(FlowsSelector.elements.LIMIT_BAL, 'The assertion failed because the LIMIT_BAL Row was not display')
-    .assert.containsText(FlowsSelector.elements.LIMIT_BAL, 'LIMIT_BAL', 'The assertion failed because the LIMIT_BAL Row was not contained LIMIT_BAL as in the File Uploaded')
-    .waitForElementVisible(FlowsSelector.elements.GENDER, configrationReader.getPeriod(), 'Test was failed because the GENDER Row was not display')
-    .assert.elementPresent(FlowsSelector.elements.GENDER, 'The assertion failed because the GENDER Row was not display')
-    .assert.containsText(FlowsSelector.elements.GENDER, 'GENDER', 'The assertion failed because the GENDER Row was not contained GENDER as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.EDUCATION, 'The assertion failed because the EDUCATION Row was not display')
-    .assert.containsText(FlowsSelector.elements.EDUCATION, 'EDUCATION', 'The assertion failed because the EDUCATION Row was not contained EDUCATION as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.MARRIAGERow, 'The assertion failed because the MARRIAGE Row was not display')
-    .assert.containsText(FlowsSelector.elements.MARRIAGERow, 'MARRIAGE', 'The assertion failed because the MARRIAGE Row was not contained MARRIAGE as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.AGE, 'The assertion failed because the AGE Row was not display')
-    .assert.containsText(FlowsSelector.elements.AGE, 'AGE', 'The assertion failed because the AGE Row was not contained AGE as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_0, 'The assertion failed because the PAY_0 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_0, 'PAY_0', 'The assertion failed because the PAY_0 Row was not contained PAY_0 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_2, 'The assertion failed because the PAY_2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_2, 'PAY_2', 'The assertion failed because the PAY_2 Row was not contained PAY_2 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_3, 'The assertion failed because the PAY_2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_3, 'PAY_3', 'The assertion failed because the PAY_3 Row was not contained PAY_3 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_4, 'The assertion failed because the PAY_2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_4, 'PAY_4', 'The assertion failed because the PAY_4 Row was not contained PAY_4 as in the File Uploaded')
-    .click(FlowsSelector.elements.paginationInTabs)
-    .assert.elementPresent(FlowsSelector.elements.PAY_5, 'The assertion failed because the PAY_5 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_5, 'PAY_5', 'The assertion failed because the PAY_5 Row was not contained PAY_5 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_6, 'The assertion failed because the PAY_6 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_6, 'PAY_6', 'The assertion failed because the PAY_6 Row was not contained PAY_6 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT1, 'The assertion failed because the BILL_AMT1 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT1, 'BILL_AMT1', 'The assertion failed because the BILL_AMT1 Row was not contained BILL_AMT1 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT2, 'The assertion failed because the BILL_AMT2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT2, 'BILL_AMT2', 'The assertion failed because the BILL_AMT2 Row was not contained BILL_AMT2 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT3, 'The assertion failed because the BILL_AMT3 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT3, 'BILL_AMT3', 'The assertion failed because the BILL_AMT3 Row was not contained BILL_AMT3 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT4, 'The assertion failed because the BILL_AMT4 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT4, 'BILL_AMT4', 'The assertion failed because the BILL_AMT4 Row was not contained BILL_AMT4 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT5, 'The assertion failed because the BILL_AMT5 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT5, 'BILL_AMT5', 'The assertion failed because the BILL_AMT5 Row was not contained BILL_AMT5 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT6, 'The assertion failed because the BILL_AMT6 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT6, 'BILL_AMT6', 'The assertion failed because the BILL_AMT6 Row was not contained BILL_AMT6 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT1, 'The assertion failed because the PAY_AMT1 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT1, 'PAY_AMT1', 'The assertion failed because the PAY_AMT1 Row was not contained PAY_AMT1 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT2, 'The assertion failed because the PAY_AMT2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT2, 'PAY_AMT2', 'The assertion failed because the PAY_AMT2 Row was not contained PAY_AMT2 as in the File Uploaded')
-    .click(FlowsSelector.elements.paginationInTabs)
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT3, 'The assertion failed because the PAY_AMT3 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT3, 'PAY_AMT3', 'The assertion failed because the PAY_AMT3 Row was not contained PAY_AMT3 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT4, 'The assertion failed because the PAY_AMT4 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT4, 'PAY_AMT4', 'The assertion failed because the PAY_AMT4 Row was not contained PAY_AMT4 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT5, 'The assertion failed because the PAY_AMT5 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT5, 'PAY_AMT5', 'The assertion failed because the PAY_AMT5 Row was not contained PAY_AMT5 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT6, 'The assertion failed because the PAY_AMT6 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT6, 'PAY_AMT6', 'The assertion failed because the PAY_AMT6 Row was not contained PAY_AMT6 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.DefaultPaymentNextMonth, 'The assertion failed because the DefaultPaymentNextMonth Row was not display')
-    .assert.containsText(FlowsSelector.elements.DefaultPaymentNextMonth, 'default.payment.next.month', 'The assertion failed because the DefaultPaymentNextMonth Row was not contained DefaultPaymentNextMonth as in the File Uploaded')
+    .assert.containsText(FlowsSelector.elements.ID, configrationReader.getFeature(), 'The assertion failed because the ID Row was not contained ID as in the File Uploaded')
     .assert.elementPresent(FlowsSelector.elements.RoleColumn, 'The assertion failed After you Click on Columns Tab because the Role Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.TypeColumn, 'The assertion failed After you Click on Columns Tab because the Type Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.CardinalityColumn, 'The assertion failed After you Click on Columns Tab because the Cardinality Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.NullRatioColumn, 'The assertion failed After you Click on Columns Tab because the NullRatio Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.PreviewColumn, 'The assertion failed After you Click on Columns Tab because the Preview Column was not displayed')
-
-
 }
 
 //Columns - search by feature name is working as expected 
@@ -428,7 +358,7 @@ exports.SearchByFeatureNameInColumnTab = (browser) => {
   browser
     .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
     .assert.elementPresent(FlowsSelector.elements.ColumnsTab, 'The assertion failed because Columns Tab was not exist in Data Source Details Section')
-    .pause(7000)
+    .pause(configrationReader.getDelayValue())
     .click(FlowsSelector.elements.ColumnsTab, function (result) {
       //check if Search input field is exists or not
       browser
@@ -441,8 +371,6 @@ exports.SearchByFeatureNameInColumnTab = (browser) => {
         //check if first column is what you searched about
         .assert.containsText(FlowsSelector.elements.FirstRowInTable, configrationReader.getFeatureName(), 'The assertion failed because the Result does not match what you serached on')
         .pause(configrationReader.getPauseValue());
-
-
     });
 }
 //Check if Data are displayed in Statistics tab
@@ -453,61 +381,10 @@ exports.CheckStatisticsTab = (browser) => {
     .assert.elementPresent(FlowsSelector.elements.StatisticsTab, 'The assertion failed because Columns Tab was not exist in Data Source Details Section')
     .pause(configrationReader.getPauseValue())
     .click(FlowsSelector.elements.StatisticsTab)
-    .assert.elementPresent(FlowsSelector.elements.FeatureName, 'The assertion failed After you Click on Columns Tab because the switcher box column was not displayed')
+    .assert.elementPresent(FlowsSelector.elements.Table, 'The assertion failed After you Click on Statistics Tab because the Table was not displayed')
+    .assert.elementPresent(FlowsSelector.elements.FeatureName, 'The assertion failed After you Click on Statistics Tab because the Feature Name column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.ID, 'The assertion failed because the ID Row was not display')
-    .assert.containsText(FlowsSelector.elements.ID, 'ID', 'The assertion failed because the ID Row was not contained ID as in the File Uploaded')
-    .waitForElementVisible(FlowsSelector.elements.LIMIT_BAL, configrationReader.getPeriod(), 'The assertion failed because the LIMIT_BAL Row was not display')
-    .assert.elementPresent(FlowsSelector.elements.LIMIT_BAL, 'The assertion failed because the LIMIT_BAL Row was not display')
-    .assert.containsText(FlowsSelector.elements.LIMIT_BAL, 'LIMIT_BAL', 'The assertion failed because the LIMIT_BAL Row was not contained LIMIT_BAL as in the File Uploaded')
-    .waitForElementVisible(FlowsSelector.elements.GENDER, configrationReader.getPeriod(), 'The assertion failed because the GENDER Row was not display')
-    .assert.elementPresent(FlowsSelector.elements.GENDER, 'The assertion failed because the GENDER Row was not display')
-    .assert.containsText(FlowsSelector.elements.GENDER, 'GENDER', 'The assertion failed because the GENDER Row was not contained GENDER as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.EDUCATION, 'The assertion failed because the EDUCATION Row was not display')
-    .assert.containsText(FlowsSelector.elements.EDUCATION, 'EDUCATION', 'The assertion failed because the EDUCATION Row was not contained EDUCATION as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.MARRIAGERow, 'The assertion failed because the MARRIAGE Row was not display')
-    .assert.containsText(FlowsSelector.elements.MARRIAGERow, 'MARRIAGE', 'The assertion failed because the MARRIAGE Row was not contained MARRIAGE as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.AGE, 'The assertion failed because the AGE Row was not display')
-    .assert.containsText(FlowsSelector.elements.AGE, 'AGE', 'The assertion failed because the AGE Row was not contained AGE as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_0, 'The assertion failed because the PAY_0 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_0, 'PAY_0', 'The assertion failed because the PAY_0 Row was not contained PAY_0 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_2, 'The assertion failed because the PAY_2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_2, 'PAY_2', 'The assertion failed because the PAY_2 Row was not contained PAY_2 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_3, 'The assertion failed because the PAY_2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_3, 'PAY_3', 'The assertion failed because the PAY_3 Row was not contained PAY_3 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_4, 'The assertion failed because the PAY_2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_4, 'PAY_4', 'The assertion failed because the PAY_4 Row was not contained PAY_4 as in the File Uploaded')
-    .click(FlowsSelector.elements.paginationInTabs)
-    .assert.elementPresent(FlowsSelector.elements.PAY_5, 'The assertion failed because the PAY_5 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_5, 'PAY_5', 'The assertion failed because the PAY_5 Row was not contained PAY_5 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_6, 'The assertion failed because the PAY_6 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_6, 'PAY_6', 'The assertion failed because the PAY_6 Row was not contained PAY_6 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT1, 'The assertion failed because the BILL_AMT1 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT1, 'BILL_AMT1', 'The assertion failed because the BILL_AMT1 Row was not contained BILL_AMT1 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT2, 'The assertion failed because the BILL_AMT2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT2, 'BILL_AMT2', 'The assertion failed because the BILL_AMT2 Row was not contained BILL_AMT2 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT3, 'The assertion failed because the BILL_AMT3 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT3, 'BILL_AMT3', 'The assertion failed because the BILL_AMT3 Row was not contained BILL_AMT3 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT4, 'The assertion failed because the BILL_AMT4 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT4, 'BILL_AMT4', 'The assertion failed because the BILL_AMT4 Row was not contained BILL_AMT4 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT5, 'The assertion failed because the BILL_AMT5 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT5, 'BILL_AMT5', 'The assertion failed because the BILL_AMT5 Row was not contained BILL_AMT5 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.BILL_AMT6, 'The assertion failed because the BILL_AMT6 Row was not display')
-    .assert.containsText(FlowsSelector.elements.BILL_AMT6, 'BILL_AMT6', 'The assertion failed because the BILL_AMT6 Row was not contained BILL_AMT6 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT1, 'The assertion failed because the PAY_AMT1 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT1, 'PAY_AMT1', 'The assertion failed because the PAY_AMT1 Row was not contained PAY_AMT1 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT2, 'The assertion failed because the PAY_AMT2 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT2, 'PAY_AMT2', 'The assertion failed because the PAY_AMT2 Row was not contained PAY_AMT2 as in the File Uploaded')
-    .click(FlowsSelector.elements.paginationInTabs)
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT3, 'The assertion failed because the PAY_AMT3 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT3, 'PAY_AMT3', 'The assertion failed because the PAY_AMT3 Row was not contained PAY_AMT3 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT4, 'The assertion failed because the PAY_AMT4 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT4, 'PAY_AMT4', 'The assertion failed because the PAY_AMT4 Row was not contained PAY_AMT4 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT5, 'The assertion failed because the PAY_AMT5 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT5, 'PAY_AMT5', 'The assertion failed because the PAY_AMT5 Row was not contained PAY_AMT5 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.PAY_AMT6, 'The assertion failed because the PAY_AMT6 Row was not display')
-    .assert.containsText(FlowsSelector.elements.PAY_AMT6, 'PAY_AMT6', 'The assertion failed because the PAY_AMT6 Row was not contained PAY_AMT6 as in the File Uploaded')
-    .assert.elementPresent(FlowsSelector.elements.DefaultPaymentNextMonth, 'The assertion failed because the DefaultPaymentNextMonth Row was not display')
-    .assert.containsText(FlowsSelector.elements.DefaultPaymentNextMonth, 'default.payment.next.month', 'The assertion failed because the default.payment.next.month Row was not contained default.payment.next.month as in the File Uploaded')
+    .assert.containsText(FlowsSelector.elements.ID, configrationReader.getFeature(), 'The assertion failed because the ID Row was not contained ID as in the File Uploaded')
     .assert.elementPresent(FlowsSelector.elements.CountValues, 'The assertion failed After you Click on Statistics Tab because the Count Values Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.UniqueCount, 'The assertion failed After you Click on Statistics Tab because the Unique Count Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.NullRatio, 'The assertion failed After you Click on Statistics Tab because the Null Ratio Column was not displayed')
@@ -520,7 +397,7 @@ exports.CheckStatisticsTab = (browser) => {
     .assert.elementPresent(FlowsSelector.elements.MaxValue, 'The assertion failed After you Click on Statistics Tab because the Max Value Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.MostCommonFrequency, 'The assertion failed After you Click on Statistics Tab because the Most Common Frequency Column was not displayed')
     .assert.elementPresent(FlowsSelector.elements.MostCommonValue, 'The assertion failed After you Click on Statistics Tab because the Most Common Value Column was not displayed')
-
+    .pause(configrationReader.getPauseValue())
 }
 
 //Check if Search By Feature Name is working as expected In Statistics tab
@@ -528,7 +405,7 @@ exports.SearchByFeatureNameInStatisticsTab = (browser) => {
   browser
     .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
     .assert.elementPresent(FlowsSelector.elements.StatisticsTab, 'The assertion failed because Columns Tab was not exist in Data Source Details Section')
-    .pause(7000)
+    .pause(configrationReader.getDelayValue())
     .click(FlowsSelector.elements.StatisticsTab, function (result) {
       //check if Search input field is exists or not
       browser
@@ -540,9 +417,9 @@ exports.SearchByFeatureNameInStatisticsTab = (browser) => {
         .waitForElementVisible(FlowsSelector.elements.FirstRowInTable, configrationReader.getPeriod(), 'Test was failed because No Result value was displayed for what you searched on')
         //check if first column is what you searched about
         .assert.containsText(FlowsSelector.elements.FirstRowInTable, configrationReader.getFeatureName(), 'Test was failed because the Result does not match what you serached on')
-        .pause(7000);
+        .pause(configrationReader.getDelayValue());
     })
-    .pause(7000);
+    .pause(configrationReader.getDelayValue());
 }
 
 //Delete a column that was added to the Central Data Source table, use the slider in the Columns tab, Verify that this column will no longer be in the Data Panel.
@@ -551,7 +428,7 @@ exports.DeleteColumn = (browser) => {
     .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
     .assert.elementPresent(FlowsSelector.elements.ColumnsTab, 'The assertion failed because Columns Tab was not exist in Data Source Details Section')
     //Add this pause value to make delay while the tabs are loading
-    .pause(7000)
+    .pause(configrationReader.getDelayValue())
     //Click on Columns tab
     .click(FlowsSelector.elements.ColumnsTab, function (result) {
       browser
@@ -591,10 +468,15 @@ exports.AddAnotherCSVFile = (browser) => {
     .assert.elementPresent(FlowsSelector.elements.InputFileId, 'The assertion failed because the Input field for the file was not displayed in the new flow page')
     //Add another file
     .setValue(FlowsSelector.elements.InputFileId, require('path').resolve(__dirname + '/Data/UCI_Birth_Dates.csv'))
-    .pause(configrationReader.getPauseValue())
+    .pause(configrationReader.getLongWait())
     .assert.elementPresent(FlowsSelector.elements.NameOfThefile, 'The assertion failed because the File Name in File Information section was not displayed after you Upload File')
     .assert.containsText(FlowsSelector.elements.NameOfThefile, configrationReader.getTheFileInformation_NameForSecondFile(), 'The assertion failed because the File Name in File Information section was not match with the uploaded file name after you Upload File')
     .pause(configrationReader.getPauseValue())
+}
+
+exports.SelectJoinValue = (browser) => {
+  browser
+    .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
     //Add join value 
     .assert.elementPresent(FlowsSelector.elements.FirstJoinField)
     .setValue(FlowsSelector.elements.FirstJoinField, configrationReader.getJoinValue())
@@ -605,7 +487,7 @@ exports.AddAnotherCSVFile = (browser) => {
     .setValue(FlowsSelector.elements.SecondjoinField, configrationReader.getJoinValue())
     .pause(configrationReader.getPauseValue())
     .click(FlowsSelector.elements.FirstElement)
-    .pause(configrationReader.getPauseValue());
+    .pause(configrationReader.getLongWait())
 
 }
 
@@ -645,7 +527,9 @@ exports.DeleteAllDataSource = (browser) => {
     //if Add Master Data Source was display then all Data sources was deleted 
     .assert.elementPresent(FlowsSelector.elements.AddMasterDataSourceButton, 'The assertion failed after you Remove all data source because the Add Master Data Source Button was not displayed')
     .assert.containsText(FlowsSelector.elements.AddMasterDataSourceButton, 'Add Master Data Source', 'The assertion failed after you Remove all data source because the button was not contained Add Master Data Source which indicates that all data sources are not deleted')
-
+    // check if "No file chosen" msg is display or not after you remove all data sources
+    .assert.elementPresent(FlowsSelector.elements.EmptyInput, 'The assertion failed After you click on Remove all button because the msg for empty input was not displayed')
+    .assert.containsText(FlowsSelector.elements.EmptyInput, 'No file chosen', 'The assertion failed because there is no file uploaded but the msg was not displayed that no file chosen after you click on Remove All button')
 
 }
 
@@ -745,9 +629,9 @@ exports.StopFlow = (browser) => {
       browser
         .assert.equal(result.value, 'true', 'The assertion failed because Stop Flow Button was enabled for the new flow');
     })
-    .click(FlowsSelector.elements.StopFlowButton,function(result){
-    browser
-    .pause(configrationReader.getPauseValue())
+    .click(FlowsSelector.elements.StopFlowButton, function (result) {
+      browser
+        .pause(configrationReader.getPauseValue())
     })
     //delay
     .pause(configrationReader.getPauseValue())

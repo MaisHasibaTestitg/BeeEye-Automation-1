@@ -52,6 +52,18 @@ exports.getPauseValue = () => {
     return pauseValue;
 }
 
+//Long delay
+exports.getLongWait = () => {
+    var LongWait = config.LongWait;
+    return LongWait;
+}
+
+//Delay
+exports.getDelayValue = () => {
+    var DelayValue = config.DelayValue;
+    return DelayValue;
+}
+
 //Error  msg
 exports.DisplayError = () => {
     var err = config.err;
@@ -108,4 +120,30 @@ exports.getFeatureName = () => {
 exports.getJoinValue = () => {
     var JoinValue = config.JoinValue;
     return JoinValue;
+}
+
+//TransformationFunction
+exports.getTransformationFunction = () => {
+    var transformationFunction = config.transformationFunction;
+    return transformationFunction;
+}
+
+exports.getFeature = () => {
+    var feature = config.feature;
+    return feature;
+}
+
+exports.getAbsFunction = () => {
+    var Abs = config.Abs;
+    return Abs;
+}
+
+exports.getFeature_abs = () => {
+    var feature_abs = config.feature_abs;
+    return feature_abs;
+}
+
+exports.getSqrtFunction = () => {
+    var Sqrt = config.Sqrt;
+    return Sqrt;
 }

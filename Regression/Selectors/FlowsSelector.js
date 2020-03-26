@@ -107,9 +107,9 @@ module.exports = {
         Name: {
             selector: '.source-info>ul>li:nth-child(1)>strong'
         },
-    
-        Type:{
-            selector:'.source-info>ul>li:nth-child(2)>strong'
+
+        Type: {
+            selector: '.source-info>ul>li:nth-child(2)>strong'
         },
         /*Type: {
             selector: '/html/body/div/div/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div/ul/li[2]/strong',
@@ -171,16 +171,16 @@ module.exports = {
         FlowLogButton: {
             selector: '.d-flex.notifications-button',
         },
-        
-        RunFlowButton : {
-            selector : '.flow-edit-control-buttons>div:nth-child(1)'
+
+        RunFlowButton: {
+            selector: '.flow-edit-control-buttons>div:nth-child(1)'
         },
-       
-        StopFlowButton :{
-            selector : '.flow-edit-control-buttons>div:nth-child(2)>.app-btn.app-btn-asset.app-btn-square'
+
+        StopFlowButton: {
+            selector: '.flow-edit-control-buttons>div:nth-child(2)>.app-btn.app-btn-asset.app-btn-square'
         },
-        RefreshFlowButton : {
-            selector : '.flow-edit-control-buttons>div:nth-child(3)>.app-btn.app-btn-asset.app-btn-square'
+        RefreshFlowButton: {
+            selector: '.flow-edit-control-buttons>div:nth-child(3)>.app-btn.app-btn-asset.app-btn-square'
         },
 
         LogError: {
@@ -190,9 +190,12 @@ module.exports = {
         Log: {
             selector: '.pre-log'
         },
-        
+
         LogWindow: {
-            selector : '.notifications-window-wrapper>div>.app-modal-view.app-card-custom'
+            selector: '.notifications-window-wrapper>div>.app-modal-view.app-card-custom'
+        },
+        CloseIcon: {
+            selector: '.close-modal.c-p.d-flex'
         },
 
         FlowList: {
@@ -272,83 +275,83 @@ module.exports = {
         },
         LIMIT_BAL: {
             selector: '.table-row',
-            index :'2'
+            index: '2'
         },
         GENDER: {
             selector: '.table-row',
-            index :'3'
+            index: '3'
         },
         EDUCATION: {
             selector: '.table-row',
-            index :'4'
+            index: '4'
         },
         MARRIAGERow: {
             selector: '.table-row',
-            index :'5'
+            index: '5'
         },
         AGE: {
             selector: '.table-row',
-            index :'6'
+            index: '6'
         },
         PAY_0: {
             selector: '.table-row',
-            index :'7'
+            index: '7'
         },
         PAY_2: {
-           /// selector: '.table-row:nth-child(8)'
-           selector: '.table-row',
-           index :'8'
+            /// selector: '.table-row:nth-child(8)'
+            selector: '.table-row',
+            index: '8'
         },
         PAY_3: {
             selector: '.table-row',
-            index :'9'
+            index: '9'
         },
         PAY_4: {
             selector: '.table-row',
-            index :'10'
+            index: '10'
         },
 
         PAY_5: {
             selector: '.table-row',
-            index : '1'
+            index: '1'
         },
         PAY_6: {
             selector: '.table-row',
-            index :'2'
+            index: '2'
         },
         BILL_AMT1: {
             selector: '.table-row',
-            index :'3'
+            index: '3'
         },
         BILL_AMT2: {
             selector: '.table-row',
-            index :'4'
+            index: '4'
         },
         BILL_AMT3: {
             selector: '.table-row',
-            index :'5'
+            index: '5'
         },
         BILL_AMT4: {
             selector: '.table-row',
-            index :'6'
+            index: '6'
         },
         BILL_AMT5: {
             selector: ' .table-row',
-            index :'7'
+            index: '7'
         },
         BILL_AMT6: {
             selector: '.table-row',
-            index :'8'
+            index: '8'
         },
 
         PAY_AMT1: {
             selector: '.table-row',
-            index :'9'
+            index: '9'
         },
 
         PAY_AMT2: {
             selector: '.table-row',
-            index :'10'
+            index: '10'
         },
 
         paginationInTabs: {
@@ -471,12 +474,20 @@ module.exports = {
             selector: '.autofg-wrapper'
         },
 
-        ToolTipforRunFlow : {
-            selector : '.flow-edit-control-buttons>div:nth-child(1)'
+        ToolTipforRunFlow: {
+            selector: '.flow-edit-control-buttons>div:nth-child(1)'
         },
         FlowMemberinthelist: {
             selector: '.card-header-custom>div>.flow-name'
+        },
+        FirstElementinLabelList: {
+            selector: '.ui.fluid.search.selection.dropdown.active.visible>.menu.visible'
+        },
+
+        AutoFGButtonDisabled: {
+            selector: '#AutoFG[disabled="disabled"]'
         }
-        
+
+
     }
 };
