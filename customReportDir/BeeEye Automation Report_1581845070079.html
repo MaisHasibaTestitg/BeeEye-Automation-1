@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BeeEye Automation</title>
+    
+    <link rel="stylesheet" href="css/mochawesome.css">
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="report-info-cnt">
+          <h1 class="report-title">BeeEye Automation</h1>
+          <h3 class="report-date">Sunday, February 16 2020, 11:24am</h3>
+        </div>
+        <div class="nav-right">
+          <div class="quick-summary-cnt">
+              <ul class="list-unstyled quick-summary">
+                <li class="qs-item summary-duration" title="Duration">21<span>MS</span></li>
+                <li class="qs-item summary-suites" title="Suites">1</li>
+                <li class="qs-item summary-tests" title="Tests">32</li>
+                <li class="qs-item summary-passes" title="Passed" data-filter="passed">0</li>
+                <li class="qs-item summary-failures" title="Failed" data-filter="failed">0</li>
+                <li class="qs-item summary-pending" title="Pending" data-filter="pending">0</li>
+              </ul>          </div>
+          <button class="nav-menu-btn open-menu"><i class="icon-menu"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report Summary -->
+    <div class="summary">
+      <div class="container">
+          <div class="row">
+            <div class="summary-col summary-duration">
+              <h1 class="summary-count">21<span>MS</span></h1>
+              <h4 class="summary-label">MS</h4>
+            </div>
+            <div class="summary-col summary-suites" title="Suites">
+              <h1 class="summary-count">1</h1>
+              <h4 class="summary-label">Suite</h4>
+            </div>
+            <div class="summary-col summary-tests" title="Tests">
+              <h1 class="summary-count">32</h1>
+              <h4 class="summary-label">Tests</h4>
+            </div>
+            <div class="summary-col summary-passes" data-filter="passed" title="Passed">
+              <h1 class="summary-count">0</h1>
+              <h4 class="summary-label">Passed</h4>
+            </div>
+            <div class="summary-col summary-failures" data-filter="failed" title="Failed">
+              <h1 class="summary-count">0</h1>
+              <h4 class="summary-label">Failed</h4>
+            </div>
+            <div class="summary-col summary-pending" data-filter="pending" title="Pending">
+              <h1 class="summary-count">0</h1>
+              <h4 class="summary-label">Pending</h4>
+            </div>
+          </div>      </div>
+    </div>
+    <div class="statusbar has-failed-hooks has-skipped-tests">
+      <div class="container">
+          <div class="row">
+            <div class="status-item status-item-hooks danger">2 Failed Hooks</div>
+            <div class="status-item status-item-skipped danger">32 Skipped Tests</div>
+            <div class="status-item status-item-pending-pct">0% Pending</div>
+            <div class="status-item status-item-passing-pct danger">0% Passing</div>
+          </div>      </div>
+    </div>
+
+    <!-- Suites -->
+    <div class="details container">
+            <section class="suite-wrap">
+          <div id="844b9d95-f782-4afb-9d56-fcf4730a6a6c" class="suite has-tests has-skipped">
+            <h3 class="suite-title">Dashboard Page : Test if these section are display or not: Best Flow(GINI) , System Statistics , Top Flows , Platform Staistics , Recent Viewed Flows</h3>
+            <h5 class="suite-filename">\Regression\tests\Dashboard\DashboardTests.js</h5>
+            <!-- Suite Chart -->
+            <div class="suite-chart-wrap">
+              <canvas id="844b9d95-f782-4afb-9d56-fcf4730a6a6c" class="suite-chart" width="50" height="50" data-total-passes="0" data-total-failures="0" data-total-pending="0" data-total-skipped="3"></canvas>
+            </div>
+            <div class="suite-data-wrap">
+              <!-- Suite Summary -->
+              <ul class="suite-summary list-unstyled">
+                <li class="suite-summary-item duration">0 ms</li>
+                <li class="suite-summary-item tests">3</li>
+                <li class="suite-summary-item passed">0</li>
+                <li class="suite-summary-item failed">0</li>
+                <li class="suite-summary-item pending">0</li>
+              </ul>
+              <!-- Test Info -->
+              <div class="suite-test-wrap">
+                <div class="suite-test-header" data-toggle="collapse" data-target="#844b9d95-f782-4afb-9d56-fcf4730a6a6c-test-list">
+                  <h4 class="suite-test-header-title">Tests</h4>
+                </div>
+                <div id="844b9d95-f782-4afb-9d56-fcf4730a6a6c-test-list" class="list-group test-list collapse in">
+                    <div id="dd030d9f-a2ba-4f05-bc30-75536a78a433" class="list-group-item test failed">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              &quot;after all&quot; hook for &quot;Right Side in Dashboard Page&quot;
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#dd030d9f-a2ba-4f05-bc30-75536a78a433 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#dd030d9f-a2ba-4f05-bc30-75536a78a433 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+            <p class="test-error-message">TypeError: Cannot read property &#x27;createSession&#x27; of undefined
+              <button class="btn btn-link btn-sm toggle-btn toggle-stack collapsed" data-toggle="collapse" data-target="#dd030d9f-a2ba-4f05-bc30-75536a78a433 > .test-error-stack.collapse">Stack </button><button class="btn btn-link btn-sm toggle-btn toggle-stack collapsed" data-toggle="collapse" data-target="#dd030d9f-a2ba-4f05-bc30-75536a78a433 > .test-error-scr.collapse">Screenshot </button>
+            </p>
+        <br>  <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small">browser.end(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"End Browser"</span>);<br>    done();<br>});</code></pre>
+          </div>
+          <div class="test-error-stack collapse">
+            <pre><code class="hljs small">Difference between Expected(+) and Actual(-):
+        Cannot read property 'createSession' of undefined
+        
+        Expected:
+        undefined
+        
+        Actual:
+        undefined
+        
+        Stack:
+        <span class="hljs-built_in">TypeError</span>: Cannot read property <span class="hljs-string">'createSession'</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">undefined</span><br>    at processImmediate (internal/timers.js:<span class="hljs-number">439</span>:<span class="hljs-number">21</span>)</code></pre>
+          </div>
+          <div class="test-error-scr collapse">
+            <pre><code class="hljs small"><img src="./screenshots/1581845070100_dashboard_page_test_if_these_section_are_display_or_not_best_flow_gini_system_statistics_top_flows_platform_staistics_recent_viewed_flows_after_all_hook.png"></code></pre>
+          </div>
+        </div>            <div id="cdee6408-d4ef-4867-9806-49e76693bc49" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Left Side in Dashboard Page
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#cdee6408-d4ef-4867-9806-49e76693bc49 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#cdee6408-d4ef-4867-9806-49e76693bc49 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="56c2a078-a7ab-4691-a1ac-9fb1ba718e0f" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Center Side in Dashboard Page
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#56c2a078-a7ab-4691-a1ac-9fb1ba718e0f > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#56c2a078-a7ab-4691-a1ac-9fb1ba718e0f > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="80a66ef4-022e-4b09-98dc-77c5b758bb0d" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Right Side in Dashboard Page
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#80a66ef4-022e-4b09-98dc-77c5b758bb0d > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#80a66ef4-022e-4b09-98dc-77c5b758bb0d > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>        </div>
+              </div>
+            </div>
+        
+        
+          </div>
+        </section>
+            <section class="suite-wrap">
+          <div id="8f2f891e-3098-4a6e-83ee-c97146e1e628" class="suite has-tests has-skipped">
+            <h3 class="suite-title">Flows Page : Test if Create new flow, Edit flow, Delete flow and check if the flow card display correctly</h3>
+            <h5 class="suite-filename">\Regression\tests\FlowsTests\FlowsTests.js</h5>
+            <!-- Suite Chart -->
+            <div class="suite-chart-wrap">
+              <canvas id="8f2f891e-3098-4a6e-83ee-c97146e1e628" class="suite-chart" width="50" height="50" data-total-passes="0" data-total-failures="0" data-total-pending="0" data-total-skipped="15"></canvas>
+            </div>
+            <div class="suite-data-wrap">
+              <!-- Suite Summary -->
+              <ul class="suite-summary list-unstyled">
+                <li class="suite-summary-item duration">0 ms</li>
+                <li class="suite-summary-item tests">15</li>
+                <li class="suite-summary-item passed">0</li>
+                <li class="suite-summary-item failed">0</li>
+                <li class="suite-summary-item pending">0</li>
+              </ul>
+              <!-- Test Info -->
+              <div class="suite-test-wrap">
+                <div class="suite-test-header" data-toggle="collapse" data-target="#8f2f891e-3098-4a6e-83ee-c97146e1e628-test-list">
+                  <h4 class="suite-test-header-title">Tests</h4>
+                </div>
+                <div id="8f2f891e-3098-4a6e-83ee-c97146e1e628-test-list" class="list-group test-list collapse in">
+                    <div id="bd64b152-3704-4761-b91b-2f9318fe5356" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Create New Flow
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#bd64b152-3704-4761-b91b-2f9318fe5356 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#bd64b152-3704-4761-b91b-2f9318fe5356 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="c964cb25-fb5a-41f1-893f-b1fafdf3b0e4" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Edit Flow
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c964cb25-fb5a-41f1-893f-b1fafdf3b0e4 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c964cb25-fb5a-41f1-893f-b1fafdf3b0e4 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="d018def2-daef-4041-9f1c-ededdd24652f" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Delete Flow
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#d018def2-daef-4041-9f1c-ededdd24652f > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#d018def2-daef-4041-9f1c-ededdd24652f > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="639cec26-4d53-4992-bace-1956c6907f7d" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Card in Flows Page 
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#639cec26-4d53-4992-bace-1956c6907f7d > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#639cec26-4d53-4992-bace-1956c6907f7d > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="ef2676e2-dbc1-4f55-a1d9-bd98274768f6" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Sort by Name
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#ef2676e2-dbc1-4f55-a1d9-bd98274768f6 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#ef2676e2-dbc1-4f55-a1d9-bd98274768f6 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="f57ee9d3-c774-4be7-a550-e4ed1967cc7d" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Sort by Gini
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#f57ee9d3-c774-4be7-a550-e4ed1967cc7d > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#f57ee9d3-c774-4be7-a550-e4ed1967cc7d > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="92cb62bd-8605-434a-ac7b-e1acd1284f24" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Sort by Date created
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#92cb62bd-8605-434a-ac7b-e1acd1284f24 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#92cb62bd-8605-434a-ac7b-e1acd1284f24 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="5de7f8b8-8e28-41b8-a7bd-be4af5210ff5" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Upload File : No File Chosen
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#5de7f8b8-8e28-41b8-a7bd-be4af5210ff5 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#5de7f8b8-8e28-41b8-a7bd-be4af5210ff5 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="a073a2f2-5a6f-4893-95da-786726e0f7b2" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Upload File : The upload file extension is not CSV
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#a073a2f2-5a6f-4893-95da-786726e0f7b2 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#a073a2f2-5a6f-4893-95da-786726e0f7b2 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="e270c059-2d16-4c57-9ed5-70225b962d5c" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Upload File : Uploading File is successfully
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#e270c059-2d16-4c57-9ed5-70225b962d5c > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#e270c059-2d16-4c57-9ed5-70225b962d5c > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="26ec948d-63f6-4dfe-987f-7663759d01ee" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Upload File : Check The data after you upload the file
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#26ec948d-63f6-4dfe-987f-7663759d01ee > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#26ec948d-63f6-4dfe-987f-7663759d01ee > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="ed4ef186-b8fd-41d1-8efc-a268d20e35e9" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Valid Label : Check  when you select valid label 
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#ed4ef186-b8fd-41d1-8efc-a268d20e35e9 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#ed4ef186-b8fd-41d1-8efc-a268d20e35e9 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="858d0c98-588c-4154-855d-de1dcfa9b930" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Not Valid Label : Check when you  select not valid label
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#858d0c98-588c-4154-855d-de1dcfa9b930 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#858d0c98-588c-4154-855d-de1dcfa9b930 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="4f00a8c8-81e0-4a9e-b097-30f1996fbe9f" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Run DataSources
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4f00a8c8-81e0-4a9e-b097-30f1996fbe9f > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4f00a8c8-81e0-4a9e-b097-30f1996fbe9f > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="b0997c02-b658-468b-a07b-9decf46a2a87" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Log File without error
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#b0997c02-b658-468b-a07b-9decf46a2a87 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#b0997c02-b658-468b-a07b-9decf46a2a87 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>        </div>
+              </div>
+            </div>
+        
+        
+          </div>
+        </section>
+            <section class="suite-wrap">
+          <div id="947a4d55-a97f-46ab-8a10-e87894c40d67" class="suite has-tests has-skipped">
+            <h3 class="suite-title">Login in BeeEye : Try to login without Password , Try to login without username , Try to login with wrong password , Try to login with wrong Username and  Try to login with Valid Information</h3>
+            <h5 class="suite-filename">\Regression\tests\Login\LoginTests.js</h5>
+            <!-- Suite Chart -->
+            <div class="suite-chart-wrap">
+              <canvas id="947a4d55-a97f-46ab-8a10-e87894c40d67" class="suite-chart" width="50" height="50" data-total-passes="0" data-total-failures="0" data-total-pending="0" data-total-skipped="5"></canvas>
+            </div>
+            <div class="suite-data-wrap">
+              <!-- Suite Summary -->
+              <ul class="suite-summary list-unstyled">
+                <li class="suite-summary-item duration">0 ms</li>
+                <li class="suite-summary-item tests">5</li>
+                <li class="suite-summary-item passed">0</li>
+                <li class="suite-summary-item failed">0</li>
+                <li class="suite-summary-item pending">0</li>
+              </ul>
+              <!-- Test Info -->
+              <div class="suite-test-wrap">
+                <div class="suite-test-header" data-toggle="collapse" data-target="#947a4d55-a97f-46ab-8a10-e87894c40d67-test-list">
+                  <h4 class="suite-test-header-title">Tests</h4>
+                </div>
+                <div id="947a4d55-a97f-46ab-8a10-e87894c40d67-test-list" class="list-group test-list collapse in">
+                    <div id="74fd8829-bf56-4a34-879c-ce684d4e4ae8" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Login Without Password
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#74fd8829-bf56-4a34-879c-ce684d4e4ae8 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#74fd8829-bf56-4a34-879c-ce684d4e4ae8 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="c84a472a-f4a5-4da0-8323-745b96061ce9" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Login Without Username
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c84a472a-f4a5-4da0-8323-745b96061ce9 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c84a472a-f4a5-4da0-8323-745b96061ce9 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="4f51eb9d-c159-44a2-9a89-1a28fe3b857b" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Login With Wrong Password
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4f51eb9d-c159-44a2-9a89-1a28fe3b857b > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4f51eb9d-c159-44a2-9a89-1a28fe3b857b > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="20afb538-8125-4143-8bbd-e095c4d7ffb2" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Login With Wrong Username
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#20afb538-8125-4143-8bbd-e095c4d7ffb2 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#20afb538-8125-4143-8bbd-e095c4d7ffb2 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="e0bcef16-1ce0-48e2-828b-b55b293088cb" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Login With Valid Information
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#e0bcef16-1ce0-48e2-828b-b55b293088cb > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#e0bcef16-1ce0-48e2-828b-b55b293088cb > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>        </div>
+              </div>
+            </div>
+        
+        
+          </div>
+        </section>
+            <section class="suite-wrap">
+          <div id="22f60a5d-c35e-441a-8e87-4f069d988162" class="suite has-tests has-skipped">
+            <h3 class="suite-title">Main Navigation Bar : Test if Logo is display or not , and check every Link in this Navigation Bar if navigates you the correct screen  </h3>
+            <h5 class="suite-filename">\Regression\tests\MainNavigationBarTests\MainNavigationBarTests.js</h5>
+            <!-- Suite Chart -->
+            <div class="suite-chart-wrap">
+              <canvas id="22f60a5d-c35e-441a-8e87-4f069d988162" class="suite-chart" width="50" height="50" data-total-passes="0" data-total-failures="0" data-total-pending="0" data-total-skipped="5"></canvas>
+            </div>
+            <div class="suite-data-wrap">
+              <!-- Suite Summary -->
+              <ul class="suite-summary list-unstyled">
+                <li class="suite-summary-item duration">0 ms</li>
+                <li class="suite-summary-item tests">5</li>
+                <li class="suite-summary-item passed">0</li>
+                <li class="suite-summary-item failed">0</li>
+                <li class="suite-summary-item pending">0</li>
+              </ul>
+              <!-- Test Info -->
+              <div class="suite-test-wrap">
+                <div class="suite-test-header" data-toggle="collapse" data-target="#22f60a5d-c35e-441a-8e87-4f069d988162-test-list">
+                  <h4 class="suite-test-header-title">Tests</h4>
+                </div>
+                <div id="22f60a5d-c35e-441a-8e87-4f069d988162-test-list" class="list-group test-list collapse in">
+                    <div id="9fdb77e5-01a9-4d63-bf06-89a02584a7a6" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Main Navigation Bar
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#9fdb77e5-01a9-4d63-bf06-89a02584a7a6 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#9fdb77e5-01a9-4d63-bf06-89a02584a7a6 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="6ff9d6ad-b5ae-49ae-a075-aeba66f60a26" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              DASHBOARD
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#6ff9d6ad-b5ae-49ae-a075-aeba66f60a26 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#6ff9d6ad-b5ae-49ae-a075-aeba66f60a26 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="1bcac758-d7db-4e0b-a341-f698853288d7" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              FLOWS
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#1bcac758-d7db-4e0b-a341-f698853288d7 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#1bcac758-d7db-4e0b-a341-f698853288d7 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="4bb07a48-cc51-40d0-be95-9c120bbf3b2a" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              PRODUCTION
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4bb07a48-cc51-40d0-be95-9c120bbf3b2a > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4bb07a48-cc51-40d0-be95-9c120bbf3b2a > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="b24b65fd-955e-4f98-a21a-b38533dae01d" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              EXPLAIN
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#b24b65fd-955e-4f98-a21a-b38533dae01d > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#b24b65fd-955e-4f98-a21a-b38533dae01d > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>        </div>
+              </div>
+            </div>
+        
+        
+          </div>
+        </section>
+            <section class="suite-wrap">
+          <div id="712e6541-03ab-4317-8fa7-51f3b35b2ec3" class="suite has-tests has-skipped">
+            <h3 class="suite-title">User Status Bar : Check if username text and avatar display or not and check if each link in the dropdown navigates you to correct page  </h3>
+            <h5 class="suite-filename">\Regression\tests\UserStatusBarTests\UserStatusBarTests.js</h5>
+            <!-- Suite Chart -->
+            <div class="suite-chart-wrap">
+              <canvas id="712e6541-03ab-4317-8fa7-51f3b35b2ec3" class="suite-chart" width="50" height="50" data-total-passes="0" data-total-failures="0" data-total-pending="0" data-total-skipped="4"></canvas>
+            </div>
+            <div class="suite-data-wrap">
+              <!-- Suite Summary -->
+              <ul class="suite-summary list-unstyled">
+                <li class="suite-summary-item duration">0 ms</li>
+                <li class="suite-summary-item tests">4</li>
+                <li class="suite-summary-item passed">0</li>
+                <li class="suite-summary-item failed">0</li>
+                <li class="suite-summary-item pending">0</li>
+              </ul>
+              <!-- Test Info -->
+              <div class="suite-test-wrap">
+                <div class="suite-test-header" data-toggle="collapse" data-target="#712e6541-03ab-4317-8fa7-51f3b35b2ec3-test-list">
+                  <h4 class="suite-test-header-title">Tests</h4>
+                </div>
+                <div id="712e6541-03ab-4317-8fa7-51f3b35b2ec3-test-list" class="list-group test-list collapse in">
+                    <div id="07306ed7-f1fc-4a50-8f60-be324b5215ed" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              Is User Status Bar Display
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#07306ed7-f1fc-4a50-8f60-be324b5215ed > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#07306ed7-f1fc-4a50-8f60-be324b5215ed > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="2ea268f8-733d-468e-9ee0-edc35b99bb36" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              About Link
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#2ea268f8-733d-468e-9ee0-edc35b99bb36 > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#2ea268f8-733d-468e-9ee0-edc35b99bb36 > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="6ca5c770-d63a-4f4f-8f81-2e6d6bae50bb" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              System diagnostics Link
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#6ca5c770-d63a-4f4f-8f81-2e6d6bae50bb > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#6ca5c770-d63a-4f4f-8f81-2e6d6bae50bb > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>            <div id="6240c532-d2c5-4843-bc72-08806b21ad5a" class="list-group-item test skipped">
+          <!-- Test Heading -->
+          <div class="test-heading">
+            <h4 class="test-title">
+              <span class="text-muted hidden"> it </span>
+              LogOut Link
+            </h4>
+            <div class="pull-right">
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#6240c532-d2c5-4843-bc72-08806b21ad5a > .test-logr.collapse">Log </button>
+              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#6240c532-d2c5-4843-bc72-08806b21ad5a > .test-code.collapse">Code </button>
+              <span class="test-duration ">0 ms</span>
+            </div>
+          </div>
+          <!-- Test Errors -->
+          <!-- Test Code -->
+          <div class="test-code collapse">
+            <pre><code class="hljs javascript small"></code></pre>
+          </div>
+        </div>        </div>
+              </div>
+            </div>
+        
+        
+          </div>
+        </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Report generated by <a href="http://adamgruber.github.io/mochawesome/" target="_blank">mochawesome</a>.<br>Designed and built by <a href="https://github.com/adamgruber" target="_blank">adamgruber</a>. &copy;2020.</p>
+      </div>
+    </footer>
+
+    <!-- Nav Menu -->
+    <div class="nav-menu-wrap">
+      <div class="menu-overlay close-menu"></div>
+      <nav class="menu">
+        <button class="nav-menu-btn close-menu"><i class="icon-failed"></i></button>
+        <ul class="list-unstyled main-menu">
+                <li class="nav-menu-item">
+                <a href="#844b9d95-f782-4afb-9d56-fcf4730a6a6c" class="nav-menu-item-link has-skipped">Dashboard Page : Test if these section are display or not: Best Flow(GINI) , System Statistics , Top Flows , Platform Staistics , Recent Viewed Flows</a>
+            </li>
+                <li class="nav-menu-item">
+                <a href="#8f2f891e-3098-4a6e-83ee-c97146e1e628" class="nav-menu-item-link has-skipped">Flows Page : Test if Create new flow, Edit flow, Delete flow and check if the flow card display correctly</a>
+            </li>
+                <li class="nav-menu-item">
+                <a href="#947a4d55-a97f-46ab-8a10-e87894c40d67" class="nav-menu-item-link has-skipped">Login in BeeEye : Try to login without Password , Try to login without username , Try to login with wrong password , Try to login with wrong Username and  Try to login with Valid Information</a>
+            </li>
+                <li class="nav-menu-item">
+                <a href="#22f60a5d-c35e-441a-8e87-4f069d988162" class="nav-menu-item-link has-skipped">Main Navigation Bar : Test if Logo is display or not , and check every Link in this Navigation Bar if navigates you the correct screen  </a>
+            </li>
+                <li class="nav-menu-item">
+                <a href="#712e6541-03ab-4317-8fa7-51f3b35b2ec3" class="nav-menu-item-link has-skipped">User Status Bar : Check if username text and avatar display or not and check if each link in the dropdown navigates you to correct page  </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/vendor.js"></script>
+    <script src="js/mochawesome.js"></script>
+  </body>
+</html>
