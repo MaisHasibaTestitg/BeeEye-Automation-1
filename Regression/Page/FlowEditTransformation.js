@@ -1,4 +1,5 @@
 const FlowEditTransformationsSelector = require("../Selectors/FlowEditTransformationsSelector");
+const FlowEditDataExplorationSelectors = require("../Selectors/FlowEditDataExplorationSelectors");
 const FlowsSelector = require("../Selectors/FlowsSelector");
 const configrationReader = require("../utils/configrationReader");
 const {
@@ -15,13 +16,15 @@ exports.RunTransformation = (browser) => {
     browser
         //wait the body to be loadded 
         .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
-        .assert.elementPresent(FlowEditTransformationsSelector.elements.TransformationButton)
+        .assert.elementPresent(FlowEditTransformationsSelector.elements.TransformationButton, 'The assertion failed because the Transformation Button was not displayed')
         .click(FlowEditTransformationsSelector.elements.TransformationButton)
         .pause(configrationReader.getDelayValue())
-        .assert.elementPresent(FlowEditTransformationsSelector.elements.TransformationTab)
+        .assert.elementPresent(FlowEditTransformationsSelector.elements.TransformationTab, 'The assertion failed because the Transformation Tab was not displayed')
         .click(FlowEditTransformationsSelector.elements.TransformationTab)
         .pause(configrationReader.getPauseValue())
-        .assert.elementPresent(FlowEditTransformationsSelector.elements.FeaturesTable)
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FeatureListLink, 'The assertion failed because the Feature List Link was not displayed')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FeatureListLinkActive, 'The assertion failed because the Feature List Link was not Active when you navigate to Flows Page')
+        .assert.elementPresent(FlowEditTransformationsSelector.elements.FeaturesTable, 'The assertion failed because the Features Table was not displayed in Feature List Link')
         .assert.elementPresent(FlowsSelector.elements.ID, 'The assertion failed because the ID Row was not display')
         .assert.containsText(FlowsSelector.elements.ID, configrationReader.getFeature(), 'The assertion failed because the ID Row was not contained ID as in the File Uploaded')
         //get pause value
