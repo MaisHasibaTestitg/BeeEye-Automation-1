@@ -6,7 +6,10 @@ module.exports = {
         },
         FeatureListLinkActive : {
             selector : '.active>#feature-list'
+        },
+        ExportButton : {
+            selector : '#feature_stats_download_click'
         }
-    
+        
     }
 };
