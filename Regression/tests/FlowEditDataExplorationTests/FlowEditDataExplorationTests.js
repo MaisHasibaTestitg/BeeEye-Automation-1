@@ -72,6 +72,8 @@ describe('Flow Edit - DS : Verify if the user is navigated to the last confgurin
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on export button ");
         FlowEditTransformation.CheckLogWindow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs Window after you click on export button ");
+        FlowEditDataExploration.Pagination(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Pagination wrapper in Feature List Page");
         browser.end();
     });
 

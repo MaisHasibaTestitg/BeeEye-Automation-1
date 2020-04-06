@@ -9,7 +9,11 @@ module.exports = {
         },
         ExportButton : {
             selector : '#feature_stats_download_click'
+        },
+        Pagination : {
+            selector : '.app-pagination'
         }
+        
         
     }
 };
