@@ -147,3 +147,46 @@ exports.getSqrtFunction = () => {
     var Sqrt = config.Sqrt;
     return Sqrt;
 }
+
+exports.getFeature_DateSplit = () => {
+    var BirthDate = config.BirthDate;
+    return BirthDate;
+}
+exports.getAdditionFunction = () => {
+    var addition = config.addition;
+    return addition;
+}
+
+exports.getDateSplitFunction = () => {
+    var dateSplit = config.dateSplit;
+    return dateSplit;
+}
+//Manual Impute with -1
+exports.getNegativeStrategy = () => {
+    var negativeStrategyValue = config.negativeStrategyValue;
+    return negativeStrategyValue;
+}
+
+//Uploaded File With Null Values
+exports.getFileWithNullValues = () => {
+    var UploadedFileWithNullValues = config.UploadedFileWithNullValues;
+    return UploadedFileWithNullValues;
+}
+
+//Get feature name for Imputation function
+exports.getFeatureForImputation = () => {
+    var feature_Imputation = config.feature_Imputation;
+    return feature_Imputation;
+}
+
+//Manual Impute with Zero
+exports.getZeroStrategy = () => {
+    var ZeroStrategyValue = config.ZeroStrategyValue;
+    return ZeroStrategyValue;
+}
+
+//Manual Impute with Most Frequent
+exports.getMostFrequentStrategy = () => {
+    var MostFrequentStrategyValue = config.MostFrequentStrategyValue;
+    return MostFrequentStrategyValue;
+}

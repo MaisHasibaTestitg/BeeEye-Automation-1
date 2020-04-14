@@ -49,19 +49,52 @@ ActiveTransformationFunction :{
 ColumnsPreviewDataTable  :{ 
   selector : '.custom-table'
 },
-FirstElemntinFirstRow : {
+FirstElementinFirstRow : {
   selector: '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(1)'
 },
-SecondElemntinFirstRow  : {
+SecondElementinFirstRow  : {
   selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(2)'
 },
-ThirdElemntinFirstRow : {
+ThirdElementinFirstRow : {
   selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(3)'
 },
-FirstElemntinSixthRow : {
+ThirdElementinSecondRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(2)>.table-row-item:nth-child(3)'
+},
+ThirdElementinThirdRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(3)>.table-row-item:nth-child(3)'
+},
+ThirdElementinForthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(4)>.table-row-item:nth-child(3)'
+},
+ThirdElementinFifthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(5)>.table-row-item:nth-child(3)'
+},
+ThirdElementinSixthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(6)>.table-row-item:nth-child(3)'
+},
+ThirdElementinSeventhRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(7)>.table-row-item:nth-child(3)'
+},
+ThirdElementinEightRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(3)'
+},
+ThirdElementinSeventhRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(3)'
+},
+ThirdElementinEighthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(3)'
+},
+ThirdElementinNinthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(3)'
+},
+ForthElementinFirstRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(1)>.table-row-item:nth-child(4)'
+},
+FirstElementinSixthRow : {
   selector : '.custom-table>.table-body>.table-row:nth-child(6)>.table-row-item:nth-child(1)'
 },
-SecondElemntinSixthRow  : {
+SecondElementinSixthRow  : {
   selector : '.custom-table>.table-body>.table-row:nth-child(6)>.table-row-item:nth-child(2)'
 },
 TableRowItem : {
@@ -83,10 +116,72 @@ InputFeaturesList : {
 FirstElementInList : {
   selector: '#InputFeature_0>div>div>.ui.fluid.search.dropdown.selection.multiple.build-in-multiselect.active.visible>div:nth-child(4)'
 },
+FirstElementInList_DateSplit : {
+  selector :'#InputFeature_0>div>div>.ui.fluid.search.selection.dropdown.build-in-select.active.visible>div.menu.visible > div'
+},
 SecondTransformationFunction : {
   selector : '#scrollDiv>.transformations-list>div>button:nth-child(2)'
+},
+ThirdTransformationFunction : {
+  selector : '#scrollDiv>.transformations-list>div>button:nth-child(3)'
+},
+EditTransformationbutton : {
+  selector : '#edit-transformation'
+},
+DeleteIcon : {
+  selector : '.delete.icon'
+},
+DeleteTransformation : {
+  selector : '#delete-transformation'
+},
+ImputationTab : {
+  selector : '.app-btn.app-btn-asset.app-btn-medium.transformation-type-item:nth-child(2)'
+},
+ManualImputationRadiobutton : { 
+  selector : '.imputation-header-item-content > div[value="manual"] > .app-radio-button> label:nth-child(1) > span.custom-radio'
+},
+ColumnsForImputation : { 
+  selector : '#column_selector'
+},
+AddTransButtonDisabled : {
+  selector : '#submit-transformation[disabled="disabled"]'
+},
+FirstElementInManualImputationList : {
+  selector : '.imputation-main-item-content>div>.ui.fluid.search.dropdown.selection.multiple.active.visible>div.menu.visible>div'
+},
+StrategyList : {
+  selector : '.strategy-select.custom-select'
+},
+TableRow : {
+  selector : '.table-body>.table-row'
+},
+InputFeatureList_DateSplit : {
+  selector : '#InputFeature_0 > div > div >.ui.fluid.search.selection.dropdown.build-in-select>input.search'
+},
+FirstElementinSecondRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(2)>.table-row-item:nth-child(1)'
+},
+FirstElementinThirdRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(3)>.table-row-item:nth-child(1)'
+},
+FirstElementinForthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(4)>.table-row-item:nth-child(1)'
+},
+FirstElementinFifthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(5)>.table-row-item:nth-child(1)'
+},
+FirstElementinSixthRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(6)>.table-row-item:nth-child(1)'
+},
+FirstElementinSeventhRow : {
+  selector : '.custom-table>.table-body>.table-row:nth-child(7)>.table-row-item:nth-child(1)'
+},
+Firstt : {
+  selector : '.table-body>.table-row:nth-child(1)'
+},
+Secondd : {
+  selector : '.table-body>.table-row:nth-child(2)'
 }
-
 
     }
   };

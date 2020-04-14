@@ -483,11 +483,12 @@ module.exports = {
         FirstElementinLabelList: {
             selector: '.ui.fluid.search.selection.dropdown.active.visible>.menu.visible'
         },
-
         AutoFGButtonDisabled: {
             selector: '#AutoFG[disabled="disabled"]'
+        },
+        RunFlowDisabled: {
+            selector: '#run-flow-button[disabled="disabled"]'
         }
-
 
     }
 };

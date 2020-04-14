@@ -38,7 +38,7 @@ describe('Dashboard Page : Test if these section are display or not: Best Flow(G
     });
 
     afterEach(function (browser, done) {
-        
+
         done();
     });
 
@@ -54,9 +54,8 @@ describe('Dashboard Page : Test if these section are display or not: Best Flow(G
 
     //Check the Center side in Dashboard Page
     it('Center Side in Dashboard Page', function (browser) {
-
         setup.logTestDetails(this, "Test the Center side in Dashboard Page if System Statistics and Platform Statistics are display or not")
-                //Call CenterSideInDashboardPage function to check if System Statistics section and Platform Statistics section are display or not
+        //Call CenterSideInDashboardPage function to check if System Statistics section and Platform Statistics section are display or not
         DashboardPage.CenterSideInDashboardPage(browser);
         //Take screenshot for the result by call takeScreenShot function
         screenShotUtils.takeScreenShot(this, browser, "This is the results for Center side in Dashboard Page");
@@ -65,7 +64,6 @@ describe('Dashboard Page : Test if these section are display or not: Best Flow(G
 
     //Check the Right side in Dashboard Page
     it('Right Side in Dashboard Page', function (browser) {
-
         setup.logTestDetails(this, "Test the Right side in Dashboard Page if Recent Viewed Flows is display or not")
         //Call RightSideInDashboardPage function to check if Recent Viewed Flows section are display or not
         DashboardPage.RightSideInDashboardPage(browser);
