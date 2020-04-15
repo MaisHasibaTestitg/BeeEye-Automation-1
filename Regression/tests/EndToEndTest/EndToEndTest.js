@@ -1,4 +1,4 @@
-const DashboardPage = require("../../Page/Dashboard");
+const Production = require("../../Page/Production");
 const Flows = require("../../Page/Flows");
 const login = require("../../Page/login");
 const title = require("../../Page/Title");
@@ -18,7 +18,7 @@ const {
 describe('End To End Testing : ', function () {
 
     before(function (browser, done) {
-        logReport.log(this, "Test Cases for Dashboard Page");
+        logReport.log(this, "Test Cases for End To End ");
         done();
 
     });
@@ -78,6 +78,12 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select the feature and Submit the Experiment Model ");
         Experiments.RunExpAndChecktheResult(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Result displayed after you Run the Flow");
+        Production.ProductionPage(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Production Tab");
+        Production.DeployFlow(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on New Deploy button");
+        Production.CheckNumberOfExp(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the wizard after verifying that the displayed fow has atleast one experiment");
         browser.end();
     });
 
