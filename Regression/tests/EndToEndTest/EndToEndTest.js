@@ -18,7 +18,7 @@ const {
 describe('End To End Testing : ', function () {
 
     before(function (browser, done) {
-        logReport.log(this, "Test Cases for End To End ");
+        logReport.log(this, "Test Cases for End To End Testing");
         done();
 
     });
@@ -84,6 +84,12 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on New Deploy button");
         Production.CheckNumberOfExp(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the wizard after verifying that the displayed fow has atleast one experiment");
+        Production.SelectFlow(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select the flow in Deploy wizard");
+        Production.TrainedModel(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Flow Step and select Experiment in Trained Model");
+        Production.TestStep(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Trained Model Step and Click on Re-Test button to verify the test status");
         browser.end();
     });
 
