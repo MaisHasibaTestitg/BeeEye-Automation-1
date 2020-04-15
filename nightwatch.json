@@ -14,7 +14,7 @@
     "port" : 4444,
     "cli_args" : {
       "webdriver.chrome.driver" : "./node_modules/selenium-standalone/.selenium/chromedriver/2.43-x64-chromedriver",
-      "webdriver.gecko.driver" : "",
+      "webdriver.gecko.driver" : "/node_modules/selenium-standalone/.selenium/geckodriver/0.23.0-x64-geckodriver",
       "webdriver.edge.driver" : ""
     }
   },
@@ -33,18 +33,51 @@
         "browserName": "firefox",
         "marionette": true,
         "javascriptEnabled": true,
+        "acceptInsecureCerts": true,
         "acceptSslCerts": true
       }
     },
 
-    "default" : {
-      "desiredCapabilities": {
-        "chromeOptions" : {
-          "args" : ["start-maximized"]
-        },
-        "browserName": "chrome"
+  "default" : {
+    "desiredCapabilities": {
+      "browserName": "chrome",
+      "chromeOptions" : {
+        "args" : [
+          "window-size=1680,1050",
+          "headless",
+          "disable-gpu"
+
+       ]
+      }
+  }
+},
+
+"chrome" : {
+  "desiredCapabilities": {
+    "browserName": "chrome",
+    "chromeOptions" : {
+      "args" : [
+        "start-maximized"
+      ]
     }
-  },
+ }
+},
+
+"chromeHeadless" : {
+  "desiredCapabilities": {
+    "browserName": "chrome",
+    "chromeOptions" : {
+      "args" : [
+        "window-size=1680,1050",
+        "headless",
+        "disable-gpu"
+      ]
+    },
+    "acceptSslCerts": true,
+    "acceptInsecureCerts": true,
+    "javascriptEnabled": true
+  }
+ },
 
   "mobile" : {
     "desiredCapabilities": {

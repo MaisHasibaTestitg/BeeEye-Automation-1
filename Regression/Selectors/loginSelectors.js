@@ -10,6 +10,10 @@ module.exports = {
       selector: '.app-btn.app-btn-asset.app-btn-medium.outline'
     },
 
+    signInTermsCheckbox: {
+      selector: '.sign-in-checkbox'
+    },
+  
     UserMenu: {
       selector: '.user-menu-text'
     },

@@ -22,6 +22,9 @@ exports.LoginWithoutPassword = (browser) => {
     .assert.elementPresent(loginSelectors.elements.password, 'The assertion failed because the password field was not found in the Login Page')
     //set the value for password field
     .setValue(loginSelectors.elements.password, '') // send values
+    //Check if Sign-in Terms checkbox is displayed or not
+    .assert.elementPresent(loginSelectors.elements.signInTermsCheckbox, 'The assertion failed because the sign In Terms Checkobx was not found in the Login Page')
+    .click(loginSelectors.elements.signInTermsCheckbox)
     //Check if Sign in button is display or not
     .assert.elementPresent(loginSelectors.elements.signInBtn, 'The assertion failed because the sign In Button was not found in the Login Page')
     .click(loginSelectors.elements.signInBtn)
@@ -45,6 +48,9 @@ exports.LoginWithoutUsername = (browser) => {
     .assert.elementPresent(loginSelectors.elements.password, 'The assertion failed because the password field was not found in the Login Page')
     //set the value for password field
     .setValue(loginSelectors.elements.password, configrationReader.getPassword()) // send values
+    //Check if Sign-in Terms checkbox is displayed or not
+    .assert.elementPresent(loginSelectors.elements.signInTermsCheckbox, 'The assertion failed because the sign-in Terms Checkobx was not found in the Login Page')
+    .click(loginSelectors.elements.signInTermsCheckbox)
     //Check if Sign in button is display or not
     .assert.elementPresent(loginSelectors.elements.signInBtn, 'The assertion failed because the sign In Button was not found in the Login Page')
     .click(loginSelectors.elements.signInBtn)
@@ -68,6 +74,9 @@ exports.LoginWithWrongPassword = (browser) => {
     .assert.elementPresent(loginSelectors.elements.password, 'The assertion failed because the password field was not found in the Login Page')
     //set the value for password field
     .setValue(loginSelectors.elements.password, 'jj') // send values
+    //Check if Sign-in Terms checkbox is displayed or not
+    .assert.elementPresent(loginSelectors.elements.signInTermsCheckbox, 'The assertion failed because the sign-in Terms Checkobx was not found in the Login Page')
+    .click(loginSelectors.elements.signInTermsCheckbox)
     //Check if Sign in button is display or not
     .assert.elementPresent(loginSelectors.elements.signInBtn, 'The assertion failed because the sign In Button was not found in the Login Page')
     .click(loginSelectors.elements.signInBtn)
@@ -90,6 +99,9 @@ exports.LoginWithWrongUsername = (browser) => {
     .assert.elementPresent(loginSelectors.elements.password, 'The assertion failed because the password field was not found in the Login Page')
     //set the value for password field
     .setValue(loginSelectors.elements.password, configrationReader.getPassword()) // send values
+    //Check if Sign-in Terms checkbox is displayed or not
+    .assert.elementPresent(loginSelectors.elements.signInTermsCheckbox, 'The assertion failed because the sign-in Terms Checkobx was not found in the Login Page')
+    .click(loginSelectors.elements.signInTermsCheckbox)
     //Check if Sign in button is display or not
     .assert.elementPresent(loginSelectors.elements.signInBtn, 'The assertion failed because the sign In Button was not found in the Login Page')
     .click(loginSelectors.elements.signInBtn)
@@ -115,6 +127,9 @@ exports.LoginWithValidInformation = (browser) => {
     .assert.elementPresent(loginSelectors.elements.password, 'The assertion failed because the password field was not found in the Login Page')
     //set the value for password field
     .setValue(loginSelectors.elements.password, configrationReader.getPassword()) // send values
+    //Check if Sign-in Terms checkbox is displayed or not
+    .assert.elementPresent(loginSelectors.elements.signInTermsCheckbox, 'The assertion failed because the sign-in Terms Checkobx was not found in the Login Page')
+    .click(loginSelectors.elements.signInTermsCheckbox)
     //Check if Sign in button is display or not
     .assert.elementPresent(loginSelectors.elements.signInBtn, 'The assertion failed because the sign In Button was not found in the Login Page')
     .click(loginSelectors.elements.signInBtn)
