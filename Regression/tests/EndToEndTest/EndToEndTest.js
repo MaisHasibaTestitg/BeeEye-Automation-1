@@ -90,6 +90,10 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Flow Step and select Experiment in Trained Model");
         Production.TestStep(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Trained Model Step and Click on Re-Test button to verify the test status");
+        Production.ApprovalStep(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Test Step and verify if the data was displayed correctly in Approval Step");
+        Production.FinishDeployFlow(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Finish button in Approval Step and verify if the selected flow was deployed successfully");
         browser.end();
     });
 

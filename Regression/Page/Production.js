@@ -16,7 +16,6 @@ exports.ProductionPage = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
-        //check the Logo if it is display
         .assert.elementPresent(MainNavigationBarSelectors.elements.Production, 'The assertion failed because the Production tab was not displayed in Main Navigation Bar')
         .click(MainNavigationBarSelectors.elements.Production)
         .assert.elementPresent(ProductionSelectors.elements.NewDeploybutton, 'The assertion failed because the New Deploy button was not displayed in Production Page')
@@ -30,7 +29,6 @@ exports.DeployFlow = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
-        //check the Logo if it is display
         .assert.elementPresent(ProductionSelectors.elements.NewDeploybutton, 'The assertion failed because the New Deploy button was not displayed in Production Page')
         .click(ProductionSelectors.elements.NewDeploybutton)
         .assert.elementPresent(ProductionSelectors.elements.DeployFlowWizard, 'The assertion failed after you click on New Deploy button because the Deploy Flow wizard was not displayed')
@@ -43,7 +41,6 @@ exports.CheckNumberOfExp = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
-        //check the Logo if it is display
         .assert.elementPresent(ProductionSelectors.elements.ExperimentColumnInDeployWizard, 'The assertion failed because the Experiment column was not displayed in Deploy Flow Wizard')
         .getText(ProductionSelectors.elements.FirstElementInExpColumn, function (result) {
             browser
@@ -70,7 +67,9 @@ exports.SelectFlow = (browser) => {
         .assert.elementPresent(ProductionSelectors.elements.FirstFlowinDeployWizard, 'The assertion failed because there is no flow displayed in the Deploy Wizard')
         .click(ProductionSelectors.elements.FirstFlowinDeployWizard)
         .assert.not.elementPresent(ProductionSelectors.elements.NextButtonDisabled, 'The assertion failed because Next step button was still disbled eventhough you select flow in the wizard')
-
+        .getText(ProductionSelectors.elements.FlowNameInFlowStep, function (result) {
+            FlowName = result.value;
+        })
 
         //get pause value
         .pause(configrationReader.getPauseValue());
@@ -80,11 +79,14 @@ exports.TrainedModel = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
-        //check the Logo if it is display
         .assert.elementPresent(ProductionSelectors.elements.NextButton, 'The assertion failed because Next step button was not display in Deploy flow wizard')
         .click(ProductionSelectors.elements.NextButton)
         .assert.elementPresent(ProductionSelectors.elements.FirstExpInTrainedModel, 'The assertion failed because there is no Experiment for the selected flow')
         .assert.not.elementPresent(ProductionSelectors.elements.NextButtonDisabled, 'The assertion failed because Next step button was still disbled eventhough you select flow in the wizard')
+        .getText(ProductionSelectors.elements.ExpID, function (result) {
+            browser
+            ExpIdValue = result.value;
+        })
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
@@ -94,19 +96,90 @@ exports.TestStep = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
-        //check the Logo if it is display
         .assert.elementPresent(ProductionSelectors.elements.NextButton, 'The assertion failed because Next step button was not display in Deploy flow wizard')
         .click(ProductionSelectors.elements.NextButton)
         .assert.elementPresent(ProductionSelectors.elements.TestWrap, 'The assertion failed because Test wrap was not display in Test step to see the result of the test')
-        .assert.containsText(ProductionSelectors.elements.TestWrap, 'Test  succeeded', 'The assertion failed because Test was not Succeeded')
+        .getText(ProductionSelectors.elements.TestWrap, function (result) {
+            browser
+                .assert.equal(result.value, 'TEST SUCCEEDED', 'The assertion failed because Test was not Succeeded')
+                .pause(configrationReader.getPauseValue())
+        })
         .assert.elementPresent(ProductionSelectors.elements.NumOfRecordsFailedIntestStep, 'The assertion failed because the number of Records failed was not displayed in Test step')
-        .assert.containsText(ProductionSelectors.elements.NumOfRecordsFailedIntestStep,' 0 records failed ','The assertion failed because there is a record failed in Test step')
+
+        .getText(ProductionSelectors.elements.NumOfRecordsFailedIntestStep, function (result) {
+            browser
+                .assert.equal(result.value, '0 records failed', 'The assertion failed because there is a record failed in Test step')
+                .pause(configrationReader.getPauseValue())
+        })
         .assert.elementPresent(ProductionSelectors.elements.ReTestButton, 'The assertion failed because the Re-Test button was not displayed in Test Step')
         .click(ProductionSelectors.elements.ReTestButton)
         //verify that after you click on Re-Test Button the test status was succeeded
-        .assert.containsText(ProductionSelectors.elements.TestWrap, 'Test  succeeded', 'The assertion failed because Test was not Succeeded')
+        .assert.elementPresent(ProductionSelectors.elements.TestWrap, 'The assertion failed because Test wrap was not display in Test step to see the result of the test')
+        .getText(ProductionSelectors.elements.TestWrap, function (result) {
+            browser
+                .assert.equal(result.value, 'TEST SUCCEEDED', 'The assertion failed because Test was not Succeeded')
+                .pause(configrationReader.getPauseValue())
+
+        })
         .assert.elementPresent(ProductionSelectors.elements.NumOfRecordsFailedIntestStep, 'The assertion failed because the number of Records failed was not displayed in Test step')
-        .assert.containsText(ProductionSelectors.elements.NumOfRecordsFailedIntestStep,' 0 records failed ','The assertion failed because there is a record failed in Test step')
+        .getText(ProductionSelectors.elements.NumOfRecordsFailedIntestStep, function (result) {
+            browser
+                .assert.equal(result.value, '0 records failed', 'The assertion failed because there is a record failed in Test step')
+                .pause(configrationReader.getPauseValue())
+
+        })
+        .assert.not.elementPresent(ProductionSelectors.elements.NextButtonDisabled, 'The assertion failed because Next step button was still disbled eventhough you select flow in the wizard')
+        //get pause value
+        .pause(configrationReader.getPauseValue());
+}
+
+//Verify the data in Review Model for Deployment and Approve
+exports.ApprovalStep = (browser) => {
+    browser
+        //wait the body to be loadded
+        .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
+        .assert.elementPresent(ProductionSelectors.elements.NextButton, 'The assertion failed because Next step button was not display in Deploy flow wizard')
+        .click(ProductionSelectors.elements.NextButton)
+        .pause(configrationReader.getDelayValue())
+        .assert.elementPresent(ProductionSelectors.elements.PrevButton, 'The assertion failed because the Previous was not displayed')
+        .assert.elementPresent(ProductionSelectors.elements.ExpIdInApprovalStep, 'The assertion failed because the Exp Id was not displayed')
+        .getText(ProductionSelectors.elements.ExpIdInApprovalStep, function (result1) {
+            ExpIdValueInApprovalStep = result1.value;
+        })
+
+        .perform(function () {
+            browser
+            ExpIdValueAfterSplit = ExpIdValueInApprovalStep.split(": ")
+            console.log('The Exp Id Value In Approval Step is : ' + ExpIdValueAfterSplit[1])
+            if (ExpIdValue && ExpIdValueAfterSplit[1]) {
+                console.log('The Exp ID from Trained Model: ' + ExpIdValue)
+                console.log('The Exp ID from Approval Step: ' + ExpIdValueAfterSplit[1])
+                console.log('The Experiment ID selected for the flow selected was display in Approval Step')
+            } else {
+                console.log('The Experiment ID selected for the flow selected was not display in Approval Step and that means sth is wrong')
+            }
+        })
+
+        //get pause value
+        .pause(configrationReader.getPauseValue());
+}
+
+exports.FinishDeployFlow = (browser) => {
+    browser
+        //wait the body to be loadded
+        .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
+        .assert.elementPresent(ProductionSelectors.elements.FinishButton, 'The assertion failed because Finish button was not display in Deploy flow wizard')
+        .click(ProductionSelectors.elements.FinishButton)
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(ProductionSelectors.elements.SearchbyFlowNameInProdPage, 'The assertion failed because the search field was not display in the Production Page')
+        .perform(function () {
+            browser
+                .setValue(ProductionSelectors.elements.SearchbyFlowNameInProdPage, FlowName) // send values
+                .assert.elementPresent(ProductionSelectors.elements.ProductionCard, 'The assertion failed because the Production card was not display in the Production Page')
+                .assert.elementPresent(ProductionSelectors.elements.ProductionCardName, 'The assertion failed because the Production Card Name Field was not display on Production Card in the Production Page')
+                .assert.containsText(ProductionSelectors.elements.ProductionCardName, FlowName, 'The assertion failed because the Production card name field was not contain the selected flow')
+
+        })
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
