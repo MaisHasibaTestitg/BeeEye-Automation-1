@@ -163,7 +163,7 @@ exports.ApprovalStep = (browser) => {
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
-
+//Verify the deployed flow is displayed in production tab
 exports.FinishDeployFlow = (browser) => {
     browser
         //wait the body to be loadded
