@@ -190,3 +190,29 @@ exports.getMostFrequentStrategy = () => {
     var MostFrequentStrategyValue = config.MostFrequentStrategyValue;
     return MostFrequentStrategyValue;
 }
+
+//Cards Name in Explain Page
+exports.getConfusionMatrixCardName = () => {
+    var ConfusionMatrixCardName = config.ConfusionMatrixCardName;
+    return ConfusionMatrixCardName;
+}
+exports.getRocCurveCardName = () => {
+    var RocCurveCardName = config.RocCurveCardName;
+    return RocCurveCardName;
+}
+exports.getPredictionHistogramCardName = () => {
+    var PredictionHistogramCardName = config.PredictionHistogramCardName;
+    return PredictionHistogramCardName;
+}
+exports.getTrainedModelInfoCardName = () => {
+    var TrainedModelInfoCardName = config.TrainedModelInfoCardName;
+    return TrainedModelInfoCardName;
+}
+exports.getFeatureRankingCardName = () => {
+    var FeatureRankingCardName = config.FeatureRankingCardName;
+    return FeatureRankingCardName;
+}
+exports.getFlowDataLineageCardName = () => {
+    var FlowDataLineageCardName = config.FlowDataLineageCardName;
+    return FlowDataLineageCardName;
+}

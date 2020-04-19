@@ -2,9 +2,9 @@ const Production = require("../../Page/Production");
 const Flows = require("../../Page/Flows");
 const login = require("../../Page/login");
 const title = require("../../Page/Title");
-const Experiments = require("../../Page/Experiments"); 
+const Experiments = require("../../Page/Experiments");
 const FlowEditTransformation = require("../../Page/FlowEditTransformation");
-
+const Explain = require("../../Page/Explain");
 const screenShotUtils = require("../../utils/screenShotUtils");
 const logReport = require("mochawesome-screenshots/logReport");
 const setup = require("../../utils/setup");
@@ -42,7 +42,7 @@ describe('End To End Testing : ', function () {
     });
 
     afterEach(function (browser, done) {
-        
+
         done();
     });
 
@@ -59,6 +59,7 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
         Flows.RunDataSources(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
+        /*
         FlowEditTransformation.RunTransformation(browser);
         //Take screenshot for the result by call takeScreenShot function
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
@@ -70,6 +71,7 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Select Built In Type function from the list");
         FlowEditTransformation.DisplayDataforTransformationFunction(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create transformation function and Run Transformation to see the result ");
+        */
         Experiments.CreateExperiments(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Plus icon to create new Experiment");
         Experiments.SelectExpModel(browser);
@@ -94,8 +96,15 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Test Step and verify if the data was displayed correctly in Approval Step");
         Production.FinishDeployFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Finish button in Approval Step and verify if the selected flow was deployed successfully");
+        Explain.ExplainPage(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Explain button in Main Navigaton Bar");
+        Explain.SelectFlowAndExp(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select the Flow ID and Exp ID");
+        Explain.ResultInModelTab(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Result In Model Tab for the selected Flow ID and Exp ID");
+
         browser.end();
     });
 
-    
+
 });
