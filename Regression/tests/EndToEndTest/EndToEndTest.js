@@ -45,7 +45,34 @@ describe('End To End Testing : ', function () {
 
         done();
     });
-
+    
+        //End To End Testing
+        it('End To End Testing : Create new flow , Upload file and Create transformation function', function (browser) {
+            setup.logTestDetails(this, "End To End Testing : Create new flow , Upload file and Create transformation function")
+            Flows.CreateNewFlow(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create a new flow");
+            Flows.CheckBackButton(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new flow Page after you create a new flow");
+            Flows.UploadFile(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Upload File to the new flow");
+            Flows.SelectValidLabel(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
+            Flows.RunDataSources(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
+            FlowEditTransformation.RunTransformation(browser);
+            //Take screenshot for the result by call takeScreenShot function
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
+            FlowEditTransformation.CheckLogWindow(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs after you run the Transformation ");
+            FlowEditTransformation.CreateTransformationFunction(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Add Transformation Button");
+            FlowEditTransformation.SelectTransformationFunction(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Select Built In Type function from the list");
+            FlowEditTransformation.DisplayDataforTransformationFunction(browser);
+            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create transformation function and Run Transformation to see the result ");
+            browser.end();
+        });
+  
     //End To End Testing
     it('End To End Testing', function (browser) {
         setup.logTestDetails(this, "End To End Testing")
@@ -59,19 +86,6 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
         Flows.RunDataSources(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
-        /*
-        FlowEditTransformation.RunTransformation(browser);
-        //Take screenshot for the result by call takeScreenShot function
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
-        FlowEditTransformation.CheckLogWindow(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs after you run the Transformation ");
-        FlowEditTransformation.CreateTransformationFunction(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Add Transformation Button");
-        FlowEditTransformation.SelectTransformationFunction(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Select Built In Type function from the list");
-        FlowEditTransformation.DisplayDataforTransformationFunction(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create transformation function and Run Transformation to see the result ");
-        */
         Experiments.CreateExperiments(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Plus icon to create new Experiment");
         Experiments.SelectExpModel(browser);
@@ -85,7 +99,7 @@ describe('End To End Testing : ', function () {
         Production.DeployFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on New Deploy button");
         Production.CheckNumberOfExp(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the wizard after verifying that the displayed fow has atleast one experiment");
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the wizard after verifying that the displayed fow has at least one experiment");
         Production.SelectFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select the flow in Deploy wizard");
         Production.TrainedModel(browser);
@@ -96,15 +110,18 @@ describe('End To End Testing : ', function () {
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Next button in Test Step and verify if the data was displayed correctly in Approval Step");
         Production.FinishDeployFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Finish button in Approval Step and verify if the selected flow was deployed successfully");
-        Explain.ExplainPage(browser);
+        Production.ScoreFile(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you upload score file");
+        Production.Requests(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Requests button");
+        Production.ExplainPage(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Explain button in Main Navigaton Bar");
-        Explain.SelectFlowAndExp(browser);
+        Production.SelectFlowAndExp(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select the Flow ID and Exp ID");
-        Explain.ResultInModelTab(browser);
+        Production.ResultInModelTab(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Result In Model Tab for the selected Flow ID and Exp ID");
-
+        Production.RecordsPrediction(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Records Prediction after you enter the Record ID");
         browser.end();
     });
-
-
 });

@@ -70,3 +70,21 @@ exports.ResultInModelTab = (browser) => {
 
 
 }
+//Records Prediction
+exports.RecordsPrediction = (browser) => {
+    browser
+        //wait the body to be loadded
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(ExplainSelector.elements.RecordsPrediction, 'The assertion failed because ')
+        .click(ExplainSelector.elements.RecordsPrediction)
+        .assert.elementPresent(ExplainSelector.elements.FlowIdSelect, 'The assertion failed because ')
+        //.click(ExplainSelector.elements.FirstOptionInFlowIdList)
+        .assert.elementPresent(ExplainSelector.elements.ExpIdSelect, 'The assertion failed because ')
+        //.click(ExplainSelector.elements.FirstOptionInRecordIdList)
+        .assert.elementPresent(ExplainSelector.elements.RecordIdSelect, 'The assertion failed because ')
+        .click(ExplainSelector.elements.FirstOptionInRecordIdList)
+
+        .pause(configrationReader.getPauseValue())
+
+
+}
