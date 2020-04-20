@@ -73,9 +73,9 @@ describe('End To End Testing : ', function () {
             browser.end();
         });
   
-    //End To End Testing
-    it('End To End Testing', function (browser) {
-        setup.logTestDetails(this, "End To End Testing")
+    //Create Experiment, Deploy the selected flow, Upload Score File ,Go to Explain Page to see the Result for Records Prediction
+    it('End To End Testing : Create Experiment, Deploy the selected flow, Upload Score File ,Go to Explain Page to see the Result for Records Prediction', function (browser) {
+        setup.logTestDetails(this, "End To End Testing :  Create Experiment, Deploy the selected flow, Upload Score File ,Go to Explain Page to see the Result for Records Prediction")
         Flows.CreateNewFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create a new flow");
         Flows.CheckBackButton(browser);
@@ -99,7 +99,7 @@ describe('End To End Testing : ', function () {
         Production.DeployFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on New Deploy button");
         Production.CheckNumberOfExp(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the wizard after verifying that the displayed fow has at least one experiment");
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the wizard after verifying that the displayed flow has at least one experiment");
         Production.SelectFlow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select the flow in Deploy wizard");
         Production.TrainedModel(browser);

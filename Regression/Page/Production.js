@@ -152,6 +152,7 @@ exports.ApprovalStep = (browser) => {
 
         .perform(function () {
             browser
+            //using split function to take the Exp ID from Approval step in deployed flow process
             ExpIdValueAfterSplit = ExpIdValueInApprovalStep.split(": ")
             console.log('The Exp Id Value In Approval Step is : ' + ExpIdValueAfterSplit[1])
             if (ExpIdValue && ExpIdValueAfterSplit[1]) {
@@ -186,6 +187,7 @@ exports.FinishDeployFlow = (browser) => {
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
+//upload score file
 exports.ScoreFile = (browser) => {
     browser
         //wait the body to be loadded
@@ -207,7 +209,7 @@ exports.ScoreFile = (browser) => {
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
-
+//Click on Requests button to take the Prediction ID 
 exports.Requests = (browser) => {
     browser
         //wait the body to be loadded
@@ -226,6 +228,7 @@ exports.Requests = (browser) => {
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
+
 //Explain 
 //Navigate to Explain Page
 exports.ExplainPage = (browser) => {
@@ -251,9 +254,7 @@ exports.SelectFlowAndExp = (browser) => {
                 .assert.elementPresent(ExplainSelector.elements.ExpIdSelect, 'The assertion failed because the Exp ID Select was not display in Model Tab')
                 .click(ExplainSelector.elements.FlowIdSelect)
                 .pause(configrationReader.getPauseValue())
-                //.setValue(ExplainSelector.elements.FlowIdSelect,'Flow_1587297792765')
                 .setValue(ExplainSelector.elements.FlowIdSelect, FlowIdValue)
-                //.click(ExplainSelector.elements.FirstOptionInFlowIdList)
                 .pause(configrationReader.getPauseValue())
                 .click(ExplainSelector.elements.ExpIdSelect)
                 .setValue(ExplainSelector.elements.ExpIdSelect, ExpIdValue)
@@ -265,7 +266,7 @@ exports.SelectFlowAndExp = (browser) => {
         .pause(configrationReader.getPauseValue())
 }
 
-//Select Flow ID and Exp ID
+//See the Result in Model Tab 
 exports.ResultInModelTab = (browser) => {
     browser
         //wait the body to be loadded
@@ -273,27 +274,21 @@ exports.ResultInModelTab = (browser) => {
         .assert.elementPresent(ExplainSelector.elements.ConfusionMatrixCard, 'The assertion failed because the Confusion Matrix Card was not display after you select Flow ID and Exp ID')
         .assert.containsText(ExplainSelector.elements.ConfusionMatrixCard, configrationReader.getConfusionMatrixCardName(), 'The assertion failed because the card header of the card was not contained Confusion Matrix')
         .pause(configrationReader.getPauseValue())
-
         .assert.elementPresent(ExplainSelector.elements.RocCurveCard, 'The assertion failed because the ROC Curve Card was not display after you select Flow ID and Exp ID')
         .assert.containsText(ExplainSelector.elements.RocCurveCard, configrationReader.getRocCurveCardName(), 'The assertion failed because the card header was not contained ROC Curve')
         .pause(configrationReader.getPauseValue())
-
         .assert.elementPresent(ExplainSelector.elements.PredictionHistogramCard, 'The assertion failed because the Prediction Histogram Card was not display after you select Flow ID and Exp ID')
         .assert.containsText(ExplainSelector.elements.PredictionHistogramCard, configrationReader.getPredictionHistogramCardName(), 'The assertion failed because the card header was not contained Prediction Histogram')
         .pause(configrationReader.getPauseValue())
-
         .assert.elementPresent(ExplainSelector.elements.TrainedModelInfoCard, 'The assertion failed because the Trained Model Info Card was not display after you select Flow ID and Exp ID')
         .assert.containsText(ExplainSelector.elements.TrainedModelInfoCard, configrationReader.getTrainedModelInfoCardName(), 'The assertion failed because the card header was not contained Trained Model Info')
         .pause(configrationReader.getPauseValue())
-
         .assert.elementPresent(ExplainSelector.elements.FeatureRankingCard, 'The assertion failed because the Feature Ranking Card was not display after you select Flow ID and Exp ID')
         .assert.containsText(ExplainSelector.elements.FeatureRankingCard, configrationReader.getFeatureRankingCardName(), 'The assertion failed because the card header was not contained Feature Ranking')
         .pause(configrationReader.getPauseValue())
-
         .assert.elementPresent(ExplainSelector.elements.FlowDataLineageCard, 'The assertion failed because the Flow Data Lineage Card was not display after you select Flow ID and Exp ID')
         .assert.containsText(ExplainSelector.elements.FlowDataLineageCard, configrationReader.getFlowDataLineageCardName(), 'The assertion failed because the card header was not contained Flow Data Lineage')
         .pause(configrationReader.getPauseValue())
-
 
 }
 //Records Prediction
@@ -304,15 +299,12 @@ exports.RecordsPrediction = (browser) => {
         .assert.elementPresent(ExplainSelector.elements.RecordsPrediction, 'The assertion failed because ')
         .click(ExplainSelector.elements.RecordsPrediction)
         .assert.elementPresent(ExplainSelector.elements.FlowIdSelect, 'The assertion failed because Flow ID select field was not display in Records Prediction Tab ')
-        //.click(ExplainSelector.elements.FirstOptionInFlowIdList)
         .assert.elementPresent(ExplainSelector.elements.ExpIdSelect, 'The assertion failed because Exp ID select field was not display in Records Prediction Tab ')
-        //.click(ExplainSelector.elements.FirstOptionInRecordIdList)
         .assert.elementPresent(ExplainSelector.elements.RecordIdSelect, 'The assertion failed because Record ID select field was not display in Records Prediction Tab ')
         .pause(configrationReader.getPauseValue())
         .click(ExplainSelector.elements.RecordIdSelect)
         .pause(configrationReader.getPauseValue())
         .assert.elementPresent(ExplainSelector.elements.SelectSearchList, 'The assertion failed because no List of record ID and thats mean you do not upload score file to deployed flow')
-        // .click(ExplainSelector.elements.FirstOptionInRecordIdList)
         .pause(configrationReader.getPauseValue())
         .perform(function () {
             browser
@@ -321,10 +313,6 @@ exports.RecordsPrediction = (browser) => {
                 .keys(browser.Keys.ENTER)
                 .pause(configrationReader.getDelayValue())
         })
-        .pause(configrationReader.getPauseValue())
-
-
-        //.keys(browser.Keys.ENTER)
         .pause(configrationReader.getPauseValue())
         .assert.elementPresent(ExplainSelector.elements.RecordPredictionWrapper, 'The assertion failed because Record Prediction Wrapper was not display in Records Prediction Tab after you enter Record ID')
         .pause(configrationReader.getPauseValue())

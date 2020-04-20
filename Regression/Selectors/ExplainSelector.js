@@ -61,14 +61,5 @@ module.exports = {
         CustomTableWrapper: {
             selector: '.app-custom-table-wrapper'
         }
-
-
-
-
-
-
-
-
-
     }
 };
