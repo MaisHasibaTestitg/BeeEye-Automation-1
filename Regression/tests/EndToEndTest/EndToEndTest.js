@@ -45,34 +45,34 @@ describe('End To End Testing : ', function () {
 
         done();
     });
-    
-        //End To End Testing
-        it('End To End Testing : Create new flow , Upload file and Create transformation function', function (browser) {
-            setup.logTestDetails(this, "End To End Testing : Create new flow , Upload file and Create transformation function")
-            Flows.CreateNewFlow(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create a new flow");
-            Flows.CheckBackButton(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new flow Page after you create a new flow");
-            Flows.UploadFile(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Upload File to the new flow");
-            Flows.SelectValidLabel(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
-            Flows.RunDataSources(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
-            FlowEditTransformation.RunTransformation(browser);
-            //Take screenshot for the result by call takeScreenShot function
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
-            FlowEditTransformation.CheckLogWindow(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs after you run the Transformation ");
-            FlowEditTransformation.CreateTransformationFunction(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Add Transformation Button");
-            FlowEditTransformation.SelectTransformationFunction(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Select Built In Type function from the list");
-            FlowEditTransformation.DisplayDataforTransformationFunction(browser);
-            screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create transformation function and Run Transformation to see the result ");
-            browser.end();
-        });
-  
+
+    //End To End Testing
+    it('End To End Testing : Create new flow , Upload file and Create transformation function', function (browser) {
+        setup.logTestDetails(this, "End To End Testing : Create new flow , Upload file and Create transformation function")
+        Flows.CreateNewFlow(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create a new flow");
+        Flows.CheckBackButton(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new flow Page after you create a new flow");
+        Flows.UploadFile(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Upload File to the new flow");
+        Flows.SelectValidLabel(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
+        Flows.RunDataSources(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
+        FlowEditTransformation.RunTransformation(browser);
+        //Take screenshot for the result by call takeScreenShot function
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
+        FlowEditTransformation.CheckLogWindow(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs after you run the Transformation ");
+        FlowEditTransformation.CreateTransformationFunction(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on Add Transformation Button");
+        FlowEditTransformation.SelectTransformationFunction(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Select Built In Type function from the list");
+        FlowEditTransformation.DisplayDataforTransformationFunction(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you create transformation function and Run Transformation to see the result ");
+        browser.end();
+    });
+
     //Create Experiment, Deploy the selected flow, Upload Score File ,Go to Explain Page to see the Result for Records Prediction
     it('End To End Testing : Create Experiment, Deploy the selected flow, Upload Score File ,Go to Explain Page to see the Result for Records Prediction', function (browser) {
         setup.logTestDetails(this, "End To End Testing :  Create Experiment, Deploy the selected flow, Upload Score File ,Go to Explain Page to see the Result for Records Prediction")

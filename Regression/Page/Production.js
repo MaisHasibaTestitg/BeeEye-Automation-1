@@ -19,7 +19,7 @@ exports.ProductionPage = (browser) => {
         .assert.elementPresent(MainNavigationBarSelectors.elements.Production, 'The assertion failed because the Production tab was not displayed in Main Navigation Bar')
         .click(MainNavigationBarSelectors.elements.Production)
         .assert.elementPresent(ProductionSelectors.elements.NewDeploybutton, 'The assertion failed because the New Deploy button was not displayed in Production Page')
-        .assert.elementPresent(MainNavigationBarSelectors.elements.ProductsCount)
+        .assert.elementPresent(MainNavigationBarSelectors.elements.ProductsCount, 'The assertion failed because the Products Count was not displayed in Production Page')
         //get pause value
         .pause(configrationReader.getPauseValue());
 }
@@ -104,7 +104,7 @@ exports.TestStep = (browser) => {
         .assert.elementPresent(ProductionSelectors.elements.TestWrap, 'The assertion failed because Test wrap was not display in Test step to see the result of the test')
         .getText(ProductionSelectors.elements.TestWrap, function (result) {
             browser
-                .assert.equal(result.value, 'TEST SUCCEEDED', 'The assertion failed because Test was not Succeeded')
+                .assert.equal(result.value, 'TEST SUCCEEDED', 'The assertion failed because Test was not Succeeded', 'The assertion failed because the Test wrap has not contained "TEST SUCCEEDED" ')
                 .pause(configrationReader.getPauseValue())
         })
         .assert.elementPresent(ProductionSelectors.elements.NumOfRecordsFailedIntestStep, 'The assertion failed because the number of Records failed was not displayed in Test step')
@@ -120,7 +120,7 @@ exports.TestStep = (browser) => {
         .assert.elementPresent(ProductionSelectors.elements.TestWrap, 'The assertion failed because Test wrap was not display in Test step to see the result of the test')
         .getText(ProductionSelectors.elements.TestWrap, function (result) {
             browser
-                .assert.equal(result.value, 'TEST SUCCEEDED', 'The assertion failed because Test was not Succeeded')
+                .assert.equal(result.value, 'TEST SUCCEEDED', 'The assertion failed because the Test wrap has not contained "TEST SUCCEEDED"')
                 .pause(configrationReader.getPauseValue())
 
         })
@@ -181,7 +181,7 @@ exports.FinishDeployFlow = (browser) => {
                 .setValue(ProductionSelectors.elements.SearchbyFlowNameInProdPage, FlowName) // send values
                 .assert.elementPresent(ProductionSelectors.elements.ProductionCard, 'The assertion failed because the Production card was not display in the Production Page')
                 .assert.elementPresent(ProductionSelectors.elements.ProductionCardName, 'The assertion failed because the Production Card Name Field was not display on Production Card in the Production Page')
-                .assert.containsText(ProductionSelectors.elements.ProductionCardName, FlowName, 'The assertion failed because the Production card name field was not contain the selected flow')
+                .assert.containsText(ProductionSelectors.elements.ProductionCardName, FlowName, 'The assertion failed because the Production card name field was not contained the selected flow name')
 
         })
         //get pause value
@@ -197,13 +197,13 @@ exports.ScoreFile = (browser) => {
         .assert.elementPresent(ProductionSelectors.elements.DropdownBtn, 'The assertion failed because the Dropdown button was not display in selected Deployed flow Page')
         .pause(configrationReader.getPauseValue())
         .click(ProductionSelectors.elements.DropdownBtn)
-        .assert.elementPresent(ProductionSelectors.elements.ScoreFileOption)
+        .assert.elementPresent(ProductionSelectors.elements.ScoreFileOption, 'The assertion failed after you click on the deployed flow in Production Page because the Score File Option was not displayed in the Dropdown list')
         .click(ProductionSelectors.elements.ScoreFileOption)
         .assert.elementPresent(ProductionSelectors.elements.InputFile, 'The assertion failed because the Input fie for the score file was not displayed in the score file Model')
         .setValue(ProductionSelectors.elements.InputFile, require('path').resolve(__dirname + '/Data/UCI_Credit_Card.csv'))
         .pause(configrationReader.getLongWait())
-        .assert.elementPresent(ProductionSelectors.elements.SuccessMsg)
-        .assert.containsText(ProductionSelectors.elements.SuccessMsg, 'Successfully scored the file')
+        .assert.elementPresent(ProductionSelectors.elements.SuccessMsg, 'The assertion Failed because the Success Msg was not displayed after you Upload the Score File')
+        .assert.containsText(ProductionSelectors.elements.SuccessMsg, 'Successfully scored the file', 'The assertion failed because the Success Msg was not displayed as "Successfully scored the file"')
         .pause(configrationReader.getPauseValue())
         .keys(browser.Keys.ESCAPE)
         //get pause value
@@ -214,11 +214,11 @@ exports.Requests = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // Wait till page loads
-        .assert.elementPresent(ProductionSelectors.elements.RequestsButton)
+        .assert.elementPresent(ProductionSelectors.elements.RequestsButton, 'The assertion Failed because the Requests button was not displayed after you click on the deployed flow in the Production Page')
         .click(ProductionSelectors.elements.RequestsButton)
         .pause(configrationReader.getPauseValue())
-        .assert.elementPresent(ProductionSelectors.elements.ProductionRequestsTable)
-        .assert.elementPresent(ProductionSelectors.elements.FirstElementInPredIdcolumn)
+        .assert.elementPresent(ProductionSelectors.elements.ProductionRequestsTable, 'The assertion Failed after you click on Requests button because the Production Requests Table was not displayed')
+        .assert.elementPresent(ProductionSelectors.elements.FirstElementInPredIdcolumn, 'The assertion Failed because no element In Prediction Id column was displayed')
         .pause(configrationReader.getPauseValue())
         .getText(ProductionSelectors.elements.FirstElementInPredIdcolumn, function (result1) {
             browser
@@ -252,8 +252,10 @@ exports.SelectFlowAndExp = (browser) => {
             browser
                 .assert.elementPresent(ExplainSelector.elements.FlowIdSelect, 'The assertion failed because the Flow ID Select was not display in Model Tab')
                 .assert.elementPresent(ExplainSelector.elements.ExpIdSelect, 'The assertion failed because the Exp ID Select was not display in Model Tab')
+                //Click on Flow ID select 
                 .click(ExplainSelector.elements.FlowIdSelect)
                 .pause(configrationReader.getPauseValue())
+                //set the flow Id select field with the Flow Id value from deployed wizard
                 .setValue(ExplainSelector.elements.FlowIdSelect, FlowIdValue)
                 .pause(configrationReader.getPauseValue())
                 .click(ExplainSelector.elements.ExpIdSelect)
@@ -296,7 +298,7 @@ exports.RecordsPrediction = (browser) => {
     browser
         //wait the body to be loadded
         .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
-        .assert.elementPresent(ExplainSelector.elements.RecordsPrediction, 'The assertion failed because ')
+        .assert.elementPresent(ExplainSelector.elements.RecordsPrediction, 'The assertion failed because the Records Prediction button was not displayed in Explain Page')
         .click(ExplainSelector.elements.RecordsPrediction)
         .assert.elementPresent(ExplainSelector.elements.FlowIdSelect, 'The assertion failed because Flow ID select field was not display in Records Prediction Tab ')
         .assert.elementPresent(ExplainSelector.elements.ExpIdSelect, 'The assertion failed because Exp ID select field was not display in Records Prediction Tab ')
