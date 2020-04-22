@@ -74,8 +74,15 @@ describe('Flow Edit - DS : Verify if the user is navigated to the last confgurin
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs Window after you click on export button ");
         FlowEditDataExploration.Pagination(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Pagination wrapper in Feature List Page");
+        // FlowEditDataExploration.SortColumn(browser);
+        //  screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on sort icon for the Mean column");
+        FlowEditDataExploration.SearchInFeatureList(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Search on Feature Name In Feature List Tab");
+
         browser.end();
     });
+
+
 
 
 
