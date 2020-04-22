@@ -33,6 +33,24 @@ module.exports = {
         },
         FirstRowAfterSearch : {
             selector : '.table-body>.table-row'
+        },
+        FeatureAnalysis : {
+            selector : '#feature-analysis'
+        },
+        SelectFeatureAnalysis : {
+            selector : 'input#model-select-feature-analysis'
+        },
+        MenuInFeatureAnalysis: {
+            selector : '.menu.visible'
+        },
+        FeatureInMenu : {
+           selector : '.ui.fluid.search.selection.dropdown.active.visible>.menu.visible'
+        },
+        TableInFeatureAnalysis : {
+            selector : '.custom-table.sticky-column'
         }
+        
+        
+        
     }
 };

@@ -68,17 +68,20 @@ describe('Flow Edit - DS : Verify if the user is navigated to the last confgurin
         FlowEditTransformation.RunTransformation(browser);
         //Take screenshot for the result by call takeScreenShot function
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
-        FlowEditDataExploration.Exportbutton(browser);
+        /*FlowEditDataExploration.Exportbutton(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on export button ");
         FlowEditTransformation.CheckLogWindow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs Window after you click on export button ");
         FlowEditDataExploration.Pagination(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Pagination wrapper in Feature List Page");
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Pagination wrapper in Feature List Page");*/
         // FlowEditDataExploration.SortColumn(browser);
         //  screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on sort icon for the Mean column");
-        FlowEditDataExploration.SearchInFeatureList(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Search on Feature Name In Feature List Tab");
-
+        //FlowEditDataExploration.SearchInFeatureList(browser);
+        //screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Search on Feature Name In Feature List Tab");
+        FlowEditDataExploration.FeatureAnalysis(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you navigate to Feature Analysis Tab");
+        FlowEditDataExploration.SelectFeatureInFeatureAnalysis(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Result after you select Feature In Feature Analysis");
         browser.end();
     });
 
