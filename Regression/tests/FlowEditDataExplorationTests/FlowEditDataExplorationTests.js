@@ -143,6 +143,9 @@ it(' Flow Edit - Data exploration : Transformed Data ', function (browser) {
     screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
     FlowEditDataExploration.TransformedData(browser);
     screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you navigate to Transformed Data Tab");
+    FlowEditDataExploration.PaginationInTransformedData(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on the next icon in the Pagination");
+
     browser.end();
 });
 

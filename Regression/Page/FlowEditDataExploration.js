@@ -216,3 +216,23 @@ exports.TransformedData = (browser) => {
         .pause(configrationReader.getPauseValue())
 
 }
+
+//check if the Pagination is work fine or not
+exports.PaginationInTransformedData = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.Pagination, ' The assertion failed because the Pagination was not display In Transformed data')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.NextIconInPagination, 'The assertion failed because the Next Icon In Pagination was not display')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.PrevIconInPagination, 'The assertion failed because the Previous Icon In Pagination was not display')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.PaginationItemActive, 'The assertion failed because there is no pagination item active ')
+        //By default when you navigate to Transformed Data , the Active Pagination item should equal one 
+        .assert.containsText(FlowEditDataExplorationSelectors.elements.PaginationItemActive, configrationReader.getFirstPaginationItem())
+        .click(FlowEditDataExplorationSelectors.elements.NextIconInPagination)
+        .pause(configrationReader.getPauseValue())
+        //To verify that when you click on next icon on the pagination , it should navigates you to the next page
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.PaginationItemActive, 'The assertion failed because there is no pagination item active ')
+        .assert.containsText(FlowEditDataExplorationSelectors.elements.PaginationItemActive, configrationReader.getSecondPagination())
+        .pause(configrationReader.getPauseValue())
+
+}

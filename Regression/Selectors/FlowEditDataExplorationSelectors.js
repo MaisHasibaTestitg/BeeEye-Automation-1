@@ -13,6 +13,15 @@ module.exports = {
         Pagination: {
             selector: '.app-pagination'
         },
+        NextIconInPagination : {
+            selector : '.pagination-item:nth-child(4)'
+        },
+        PrevIconInPagination : {
+            selector : '.pagination-item:nth-child(1)'
+        },
+        PaginationItemActive : {
+            selector : '.pagination-item.active'
+        },
         MeanColumn: {
             selector: '.table-row-item:nth-child(5)'
         },
