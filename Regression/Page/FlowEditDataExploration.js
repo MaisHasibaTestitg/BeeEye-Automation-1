@@ -160,3 +160,43 @@ exports.ApplyFilter = (browser) => {
         .pause(configrationReader.getPauseValue())
 
 }
+
+//Data visualizations - Top features and Correlation heatmap tables are loaded when seleced
+exports.DataVisualization = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.DataVisualization, 'The assertion failed because the Data Visualization was not display in Exploration Tab')
+        .click(FlowEditDataExplorationSelectors.elements.DataVisualization)
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TopFeaturesRadioBtn, ' The assertion failed because the Top Features Radio button was not display')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapRadioBtn, ' The assertion failed because the Correlation Heatmap Radio button was not display')
+        .pause(configrationReader.getPauseValue())
+
+}
+
+//Data visualizations - Top features is loaded when seleced
+exports.TopFeatures = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TopFeaturesRadioBtn, ' The assertion failed because the Top Features Radio button was not display')
+
+        .click(FlowEditDataExplorationSelectors.elements.TopFeaturesRadioBtn)
+        .pause(configrationReader.getDelayValue())
+        .assert.not.elementPresent(FlowEditDataExplorationSelectors.elements.TopFeaturesTableNotDisplay, 'The assertion failed because Top Features Table was still not display eventhough you select Top Features radio button')
+        .pause(configrationReader.getPauseValue())
+
+}
+//Data visualizations - Correlation Heatmap Tables is loaded when seleced
+exports.CorrelationHeatmap = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapRadioBtn, ' The assertion failed because the Top Features Radio button was not display')
+        .click(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapRadioBtn)
+        .pause(configrationReader.getPauseValue())
+        .assert.not.elementPresent(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapTableNotDisplay, 'The assertion failed because Correlation Heatmap Table was still not display eventhough you select Correlation Heatmap radio button')
+        .pause(configrationReader.getPauseValue())
+
+}

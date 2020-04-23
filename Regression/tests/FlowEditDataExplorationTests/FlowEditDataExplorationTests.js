@@ -86,11 +86,38 @@ describe('Flow Edit - Data exploration : Verify the Feature Analysis and Transfo
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you enter the Query in Filter Query");
         FlowEditDataExploration.ApplyFilter(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you apply the filter in Feature Analysis");
-
         browser.end();
     });
 
+//Data Visualization Tab 
+it(' Flow Edit - Data exploration : Data Visualization ', function (browser) {
+    setup.logTestDetails(this, "Try to Verify That Top features and Correlation heatmap tables are loaded when selected ")
+    Flows.CreateNewFlow(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new Flow");
+    Flows.CheckBackButton(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new flow Page after you create a new flow to verify that Flow name was displayed on the back button");
+    FlowEditDS.LastConfiguringStep(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the last confguring step for the selected flow");
+    FlowEditDS.SearchOnSpecificFlowName(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the last confguring step for the selected flow after you search on this flow");
+    Flows.UploadFile(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Upload CSV File for the selected Flow");
+    Flows.SelectValidLabel(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
+    Flows.RunDataSources(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
+    FlowEditTransformation.RunTransformation(browser);
+    //Take screenshot for the result by call takeScreenShot function
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
+    FlowEditDataExploration.DataVisualization(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you navigate to Data Visualization Tab");
+    FlowEditDataExploration.TopFeatures(browser); 
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select Top Features Radio button");
+   FlowEditDataExploration.CorrelationHeatmap(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select Correlation Heatmap Radio button");
 
+    browser.end();
+});
 
 
 
