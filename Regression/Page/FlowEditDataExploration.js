@@ -193,10 +193,26 @@ exports.CorrelationHeatmap = (browser) => {
     browser
         //wait the body to be loadded 
         .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
-        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapRadioBtn, ' The assertion failed because the Top Features Radio button was not display')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapRadioBtn, ' The assertion failed because the Top Features Radio button was not display in Exploration Tab')
         .click(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapRadioBtn)
         .pause(configrationReader.getPauseValue())
         .assert.not.elementPresent(FlowEditDataExplorationSelectors.elements.CorrelationHeatmapTableNotDisplay, 'The assertion failed because Correlation Heatmap Table was still not display eventhough you select Correlation Heatmap radio button')
+        .pause(configrationReader.getPauseValue())
+
+}
+
+
+//Navigate to Transformed Data 
+exports.TransformedData = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TransformedData, ' The assertion failed because the Transformed Data was not display')
+        .click(FlowEditDataExplorationSelectors.elements.TransformedData)
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TransformedDataTable, 'The assertion failed after you click on Transformed Data because the Transformed Data Table was not display')
+        .assert.containsText(FlowEditDataExplorationSelectors.elements.IdColumnInTransformedData, configrationReader.getFeature(), 'The assertion failed because the ID Column was not contained ID as in the File Uploaded')
+
         .pause(configrationReader.getPauseValue())
 
 }

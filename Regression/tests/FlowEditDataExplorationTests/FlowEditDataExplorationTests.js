@@ -46,7 +46,7 @@ describe('Flow Edit - Data exploration : Verify the Feature Analysis and Transfo
     afterEach(function (browser, done) {
         done();
     });
-
+/*
     //Feature list - Verify the data is displayed correctly
     //Verify that export button is displayed and no errors displayed after exporting 
     it('Feature list - Verify the data is displayed correctly', function (browser) {
@@ -119,6 +119,31 @@ it(' Flow Edit - Data exploration : Data Visualization ', function (browser) {
     browser.end();
 });
 
+*/
 
+//Transformed Data Tab 
+it(' Flow Edit - Data exploration : Transformed Data ', function (browser) {
+    setup.logTestDetails(this, "Try to Verify ")
+    Flows.CreateNewFlow(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new Flow");
+    Flows.CheckBackButton(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the new flow Page after you create a new flow to verify that Flow name was displayed on the back button");
+    FlowEditDS.LastConfiguringStep(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the last confguring step for the selected flow");
+    FlowEditDS.SearchOnSpecificFlowName(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the last confguring step for the selected flow after you search on this flow");
+    Flows.UploadFile(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you Upload CSV File for the selected Flow");
+    Flows.SelectValidLabel(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you select a valid Label");
+    Flows.RunDataSources(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the data Source");
+    FlowEditTransformation.RunTransformation(browser);
+    //Take screenshot for the result by call takeScreenShot function
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you run the Transformation ");
+    FlowEditDataExploration.TransformedData(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you navigate to Transformed Data Tab");
+    browser.end();
+});
 
 });

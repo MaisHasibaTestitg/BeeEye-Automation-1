@@ -83,8 +83,16 @@ module.exports = {
         CorrelationHeatmapTableNotDisplay: {
             selector: '#correlationHeatmapTab[style="display: none;"]'
 
+        },
+        TransformedData : {
+            selector : '#transformed-data'
+        },
+        TransformedDataTable : {
+            selector : '#transformed-data-table'
+        },
+        IdColumnInTransformedData : {
+            selector : '#ID'
         }
-
-
+        
     }
 };
