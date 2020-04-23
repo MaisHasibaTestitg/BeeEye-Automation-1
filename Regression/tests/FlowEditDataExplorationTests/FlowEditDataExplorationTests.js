@@ -73,7 +73,7 @@ describe('Flow Edit - Data exploration : Verify the Feature Analysis and Transfo
         FlowEditTransformation.CheckLogWindow(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Logs Window after you click on export button ");
         FlowEditDataExploration.Pagination(browser);
-        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Pagination wrapper in Feature List Page");*/
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Pagination wrapper in Feature List Page");
         FlowEditDataExploration.SortColumn(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on sort icon for the Mean column");
         FlowEditDataExploration.SearchInFeatureList(browser);
@@ -82,6 +82,11 @@ describe('Flow Edit - Data exploration : Verify the Feature Analysis and Transfo
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you navigate to Feature Analysis Tab");
         FlowEditDataExploration.SelectFeatureInFeatureAnalysis(browser);
         screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot for the Result after you select Feature In Feature Analysis");
+        FlowEditDataExploration.FilterInFeatureAnalysis(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you enter the Query in Filter Query");
+        FlowEditDataExploration.ApplyFilter(browser);
+        screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you apply the filter in Feature Analysis");
+
         browser.end();
     });
 

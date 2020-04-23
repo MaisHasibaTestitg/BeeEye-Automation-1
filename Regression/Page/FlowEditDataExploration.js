@@ -7,7 +7,6 @@ const {
     expect
 } = require('chai')
 
-
 //Verify that export button is displayed and no errors displayed after exporting 
 exports.Exportbutton = (browser) => {
     browser
@@ -101,15 +100,63 @@ exports.SelectFeatureInFeatureAnalysis = (browser) => {
         .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
         .click(FlowEditDataExplorationSelectors.elements.SelectFeatureAnalysis, function (result) {
             browser
-        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.MenuInFeatureAnalysis, 'The assertion failed because the Menu was not display after you click on the Select Feature Analysis')
-        .setValue(FlowEditDataExplorationSelectors.elements.SelectFeatureAnalysis, configrationReader.getFeature())
-        .pause(configrationReader.getDelayValue())
-        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.MenuInFeatureAnalysis, 'The assertion failed because the Menu was not display after you enter a feature Name in the Select Feature Analysis')
-        .pause(configrationReader.getDelayValue())
-        .click(FlowEditDataExplorationSelectors.elements.FeatureInMenu)
-        .pause(configrationReader.getLongWait())
-        .keys(browser.Keys.ENTER)
-        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TableInFeatureAnalysis, 'The assertion failed after you select feature because the Table was not display for the selected feature')
-    })
+                .assert.elementPresent(FlowEditDataExplorationSelectors.elements.MenuInFeatureAnalysis, 'The assertion failed because the Menu was not display after you click on the Select Feature Analysis')
+                .setValue(FlowEditDataExplorationSelectors.elements.SelectFeatureAnalysis, configrationReader.getFeature())
+                .pause(configrationReader.getPauseValue())
+                .assert.elementPresent(FlowEditDataExplorationSelectors.elements.MenuInFeatureAnalysis, 'The assertion failed because the Menu was not display after you enter a feature Name in the Select Feature Analysis')
+                .pause(configrationReader.getPauseValue())
+                .click(FlowEditDataExplorationSelectors.elements.FeatureInMenu)
+                .pause(configrationReader.getPauseValue())
+                .keys(browser.Keys.ENTER)
+                .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TableInFeatureAnalysis, 'The assertion failed after you select feature because the Table was not display for the selected feature')
+        })
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.CountValueForTheSelectedFeature, 'The assertion failed because the Count value was not display in the Table')
+        .getText(FlowEditDataExplorationSelectors.elements.CountValueForTheSelectedFeature, function (result) {
+            browser
+            CountValue = result.value;
+        })
         .pause(configrationReader.getPauseValue())
+}
+
+//Verify that filter is working as expected
+exports.FilterInFeatureAnalysis = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .waitForElementVisible(FlowEditDataExplorationSelectors.elements.FilterInFeatureAnalysis, 'The Test failed because the filter was not display after you select the feature')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FilterInFeatureAnalysis, 'The assertion failed because the filter was not display after you select the feature')
+        .pause(configrationReader.getPauseValue())
+        .click(FlowEditDataExplorationSelectors.elements.FilterInFeatureAnalysis)
+        .waitForElementVisible(FlowEditDataExplorationSelectors.elements.ModalViewForFilter, 'The Test failed because the modal was not display after you click on Filter button')
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.ModalViewForFilter, 'The assertion failed because the modal was not display after you click on Filter button')
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FilterQuery, 'The assertion failed because the Filter Query was not display in the Filter Modal')
+        .perform(function () {
+            browser
+            Query = configrationReader.getExpression() + CountValue;
+            console.log('The Query is: ' + Query)
+            browser.setValue(FlowEditDataExplorationSelectors.elements.FilterQuery, Query)
+                .pause(configrationReader.getPauseValue())
+
+        })
+        .pause(configrationReader.getPauseValue())
+
+}
+
+//Apply the filter and verify if it works correctly
+exports.ApplyFilter = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.SubmitButton, 'The assertion failed because the Submit button was not display in the Filter Modal view')
+        .click(FlowEditDataExplorationSelectors.elements.SubmitButton)
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.CountValueForTheSelectedFeature, 'The assertion failed after you click on Submit button because the count value for the selected feature was not display')
+        .getText(FlowEditDataExplorationSelectors.elements.CountValueForTheSelectedFeature, function (result) {
+            browser
+            CountValueAfterApplyingFilter = result.value;
+            browser.verify.notEqual(CountValueAfterApplyingFilter, CountValue, 'The assertion failed because the Count value was not changed after applyijng the filter');
+        })
+        .pause(configrationReader.getPauseValue())
+
 }

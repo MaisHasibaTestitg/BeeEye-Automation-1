@@ -48,9 +48,25 @@ module.exports = {
         },
         TableInFeatureAnalysis : {
             selector : '.custom-table.sticky-column'
+        },
+        FilterInFeatureAnalysis : {
+            selector : '.features-analysis-header>.filters-wrapper>.app-btn.app-btn-asset.app-btn-square.outline'
+        },
+        
+        ModalViewForFilter : {
+            selector : '.modal-background.d-flex>#modal-view'
+        },
+        CountValueForTheSelectedFeature : {
+            selector : '.table-body>.table-row>.table-row-item:nth-child(2)'
+        },
+        FilterQuery : {
+            selector :'.modal-content-item>#enter-filter-query'
+        },
+        SubmitButton : {
+            selector : '.modal-background.d-flex>.app-modal-view.app-card-custom>.app-modal-actions.card-body-custom>button#submit-button'
+        },
+        CancleButton : {
+            selector : 'button.app-btn.app-btn-asset.app-btn-small'
         }
-        
-        
-        
     }
 };
