@@ -110,7 +110,13 @@ module.exports = {
         },
         SelectFeatureField : {
        selector : '.ui.fluid.search.dropdown.selection.multiple.show-options-select>input'
-        
-    }
+        },
+        TransformedDataSearch : {
+            selector :'#transformed-data-search'
+        },
+        LimitBalColumnInTransformedData : {
+            selector : '#LIMIT_BAL'
+
+        }
 }
 };

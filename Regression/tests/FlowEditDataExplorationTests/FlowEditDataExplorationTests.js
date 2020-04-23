@@ -145,8 +145,10 @@ it(' Flow Edit - Data exploration : Transformed Data ', function (browser) {
     screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you navigate to Transformed Data Tab");
     FlowEditDataExploration.PaginationInTransformedData(browser);
     screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on the next icon in the Pagination");
+    FlowEditDataExploration.SearchInTransformedData(browser);
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you search by feature name");
     FlowEditDataExploration.FilterByColumn(browser);
-    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on the Filter By Column icon");
+    screenShotUtils.takeScreenShot(this, browser, "Here is the screenshot after you click on the Filter By Column icon to display just the selected column");
     browser.end();
 });
 

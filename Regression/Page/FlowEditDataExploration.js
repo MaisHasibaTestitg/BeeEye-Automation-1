@@ -236,12 +236,31 @@ exports.PaginationInTransformedData = (browser) => {
         .pause(configrationReader.getPauseValue())
 
 }
+//Search by name is works fine
+exports.SearchInTransformedData = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.TransformedDataSearch, ' The assertion failed because the Search Field was not display In Transformed data')
+        .click(FlowEditDataExplorationSelectors.elements.TransformedDataSearch)
+        .pause(configrationReader.getPauseValue())
+
+        .setValue(FlowEditDataExplorationSelectors.elements.TransformedDataSearch, configrationReader.getFeatureName())
+        .pause(configrationReader.getPauseValue())
+        .assert.containsText(FlowEditDataExplorationSelectors.elements.LimitBalColumnInTransformedData, configrationReader.getFeatureName(), 'The assertion failed because the LIMIT_BAL Column was not display after you search by this feature name')
+        .pause(configrationReader.getPauseValue())
+
+}
 
 //filter by column is works fine
 exports.FilterByColumn = (browser) => {
     browser
         //wait the body to be loadded 
         .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .click(FlowEditDataExplorationSelectors.elements.DataVisualization)
+        .pause(configrationReader.getPauseValue())
+        .click(FlowEditDataExplorationSelectors.elements.TransformedData)
+        .pause(configrationReader.getPauseValue())
         .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FilterByColumnIcon, ' The assertion failed because the Filter By Column Icon was not display In Transformed data')
         .click(FlowEditDataExplorationSelectors.elements.FilterByColumnIcon)
         .pause(configrationReader.getPauseValue())
