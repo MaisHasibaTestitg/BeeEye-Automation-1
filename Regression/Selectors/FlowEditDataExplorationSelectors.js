@@ -101,7 +101,16 @@ module.exports = {
         },
         IdColumnInTransformedData : {
             selector : '#ID'
-        }
+        },
+        FilterByColumnIcon : {
+            selector :'.column.column-2.d-flex.align-items-center>button:nth-child(1)'
+        },
+        ModalViewForFilterByColumn : {
+            selector : '.modal-background.d-flex>#modal-view'
+        },
+        SelectFeatureField : {
+       selector : '.ui.fluid.search.dropdown.selection.multiple.show-options-select>input'
         
     }
+}
 };

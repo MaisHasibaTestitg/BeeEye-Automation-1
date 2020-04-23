@@ -236,3 +236,25 @@ exports.PaginationInTransformedData = (browser) => {
         .pause(configrationReader.getPauseValue())
 
 }
+
+//filter by column is works fine
+exports.FilterByColumn = (browser) => {
+    browser
+        //wait the body to be loadded 
+        .waitForElementVisible('body', configrationReader.getPeriod()) // wait till page loads
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FilterByColumnIcon, ' The assertion failed because the Filter By Column Icon was not display In Transformed data')
+        .click(FlowEditDataExplorationSelectors.elements.FilterByColumnIcon)
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.SelectFeatureField, 'The assertion faield after you click on filter icon because the select feature field was not display In the Filter by column Modal ')
+        .setValue(FlowEditDataExplorationSelectors.elements.SelectFeatureField, configrationReader.getFeature())
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.FeatureInMenu, 'The assertion faield because the Feature was not display after you enter the column name ')
+        .click(FlowEditDataExplorationSelectors.elements.FeatureInMenu)
+        .pause(configrationReader.getPauseValue())
+        .assert.elementPresent(FlowEditDataExplorationSelectors.elements.SubmitButton, 'The assertion faield because the Submit button was not display in the Select Columns Modal')
+        .click(FlowEditDataExplorationSelectors.elements.SubmitButton)
+        .pause(configrationReader.getPauseValue())
+        .assert.containsText(FlowEditDataExplorationSelectors.elements.IdColumnInTransformedData, configrationReader.getFeature(), 'The assertion failed because the ID Column was not display after you make filter to display just it')
+        .pause(configrationReader.getPauseValue())
+
+}
